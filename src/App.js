@@ -1,4 +1,5 @@
 import './App.css';
+import Species from './species/species'
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
         BIO CLICKER
       </header>
+      <Species/>
     </div>
   );
 }
