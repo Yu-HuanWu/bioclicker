@@ -1,6 +1,16 @@
-import create from "zustand";
+import { create } from 'zustand';
 
-export const [useBioStore, store] = create((set, get) => ({
+const getInitialScore = () => 5;
+const getInitialUpgrades = () => ({
+    1: {
+        id: 1,
+        cps: 1,
+        cost: 10,
+        name: "auto-clicker"
+    },
+});
+
+export const useBioStore = create((set, get) => ({
     score: getInitialScore(),
     upgrades: getInitialUpgrades(),
     purchasedUpgrades: [],
@@ -23,16 +33,13 @@ export const [useBioStore, store] = create((set, get) => ({
             set(state => ({
                 purchasedUpgrades: [...state.purchasedUpgrades, upgrade]
             }));
-            // setInterval(() => {
-            //   actions.changeScore(1);
-            // }, 1000 / upgrade.cps);
         }
     }
 }));
 
-store.setState(JSON.parse(window.localStorage.getItem("state")));
+useBioStore.setState(JSON.parse(window.localStorage.getItem("state")));
 
-store.subscribe(state => {
+useBioStore.subscribe(state => {
     const stateCopy = { ...state };
     delete stateCopy["actions"];
     window.localStorage.setItem("state", JSON.stringify(stateCopy));
