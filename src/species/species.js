@@ -23,14 +23,14 @@ function useInterval(callback, delay) {
 }
 
 export function Species({upgrade}) {
-    const score = useBioStore(s => s.score)
+    const biomass = useBioStore(s => s.biomass)
     const actions = useBioStore(s => s.actions);
-    const incScore = useCallback(() => actions.changeScore(upgrade.cps), [
+    const incBiomass = useCallback(() => actions.changeBiomass(upgrade.cps), [
         actions,
         // upgrade.cps
     ]);
-    useInterval(incScore, 1000);
+    useInterval(incBiomass, 1000);
     return (
-        <h1>this is a test score: {score}</h1>
+        <h1>this is your current biomass: {biomass}</h1>
     )
 }
