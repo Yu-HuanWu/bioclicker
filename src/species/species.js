@@ -29,8 +29,8 @@ export function Species({upgrade}) {
         actions,
         // upgrade.cps
     ]);
-    const timeout = useInterval(incScore, 1000);
+    useInterval(incScore, 1000);
     return (
-        <h1>this is a test {score}</h1>
+        <h1>this is a test score: {score}</h1>
     )
 }
