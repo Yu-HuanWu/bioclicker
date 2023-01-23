@@ -2,37 +2,34 @@ import React, { useCallback, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { useBioStore } from "../store.js"
 
-const useInterval = (callback, delay) => {
-    const savedCallback = useRef(() => { });
+function useInterval(callback, delay) {
+    const savedCallback = useRef();
 
+    // Remember the latest callback.
     useEffect(() => {
         savedCallback.current = callback;
-    });
+    }, [callback]);
 
+    // Set up the interval.
     useEffect(() => {
-        if (delay !== null) {
-            const interval = setInterval(() => savedCallback.current(), delay || 0);
-            return () => clearInterval(interval);
+        function tick() {
+            savedCallback.current();
         }
-
-        return undefined;
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
     }, [delay]);
-};
+}
 
 export function Species({upgrade}) {
     const score = useBioStore(s => s.score)
     const actions = useBioStore(s => s.actions);
-    const greaterThan1000cps = upgrade.cps > 1000;
-    const delay = Math.max(1000 / upgrade.cps, 1);
-    const incAmount = greaterThan1000cps ? upgrade.cps / 1000 : 1;
-    const incScore = useCallback(() => actions.changeScore(incAmount), [
+    const incScore = useCallback(() => actions.changeScore(upgrade.cps), [
         actions,
-        incAmount
+        // upgrade.cps
     ]);
-    // const timeout = useInterval(incScore, delay);
-    // useEffect(() => {
-    //     timeout.start();
-    // }, []);
+    const timeout = useInterval(incScore, 1000);
     return (
         <h1>this is a test {score}</h1>
     )
