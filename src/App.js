@@ -1,5 +1,6 @@
 import './App.css';
-import {Species} from './species/species.js'
+import { AutoIncrement } from './species/autoincrement.js'
+
 let upgrade = {
     id: 1,
     cps: 5,
@@ -11,7 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         BIO CLICKER
-        <Species upgrade={upgrade}/>
+        <AutoIncrement upgrade={upgrade}/>
       </header>
     </div>
   );
