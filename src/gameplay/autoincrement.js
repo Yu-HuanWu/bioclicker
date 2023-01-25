@@ -32,7 +32,5 @@ export function AutoIncrement({organism}) {
         // upgrade.cps
     ]);
     useInterval(incBiomass, 1000);
-    return (
-        <h1>this is your current biomass: {biomass}</h1>
-    )
+    return null
 }

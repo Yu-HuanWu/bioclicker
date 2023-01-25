@@ -6,7 +6,7 @@ const getInitialOrganisms = () => ({
         id: 1,
         cps: 1,
         cost: 10,
-        name: "auto-clicker"
+        name: "bacteria"
     },
 });
 
