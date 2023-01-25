@@ -1,18 +1,20 @@
 import './App.css';
-import { AutoIncrement } from './species/autoincrement.js'
+import { AutoIncrement } from './gameplay/autoincrement.js'
+import { OrganismList } from './gameplay/organisms.js'
 
-let upgrade = {
+let organism = {
     id: 1,
     cps: 5,
     cost: 10,
-    name: "auto-clicker"
+    name: "Bacteria"
   }
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         BIO CLICKER
-        <AutoIncrement upgrade={upgrade}/>
+        <AutoIncrement organism={organism}/>
+        <OrganismList/>
       </header>
     </div>
   );

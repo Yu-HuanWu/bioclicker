@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const getInitialBiomass = () => 0;
-const getInitialUpgrades = () => ({
+const getInitialOrganisms = () => ({
     1: {
         id: 1,
         cps: 1,
@@ -12,13 +12,13 @@ const getInitialUpgrades = () => ({
 
 export const useBioStore = create((set, get) => ({
     biomass: getInitialBiomass(),
-    upgrades: getInitialUpgrades(),
+    organisms: getInitialOrganisms(),
     purchasedUpgrades: [],
     actions: {
         newGame() {
             set({
                 biomass: getInitialBiomass(),
-                upgrades: getInitialUpgrades(),
+                organisms: getInitialOrganisms(),
                 purchasedUpgrades: []
             });
         },
@@ -26,12 +26,12 @@ export const useBioStore = create((set, get) => ({
             set(state => ({ biomass: state.biomass + amount }));
         },
         purchase(upgradeId) {
-            const { upgrades, actions } = get();
-            const upgrade = upgrades[upgradeId];
+            const { organisms, actions } = get();
+            const organism = organisms[upgradeId];
 
-            actions.changeBiomass(-upgrade.cost);
+            actions.changeBiomass(-organism.cost);
             set(state => ({
-                purchasedUpgrades: [...state.purchasedUpgrades, upgrade]
+                purchasedUpgrades: [...state.purchasedUpgrades, organism]
             }));
         }
     }

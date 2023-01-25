@@ -22,11 +22,13 @@ function useInterval(callback, delay) {
     }, [delay]);
 }
 
-export function AutoIncrement({upgrade}) {
+export function AutoIncrement({organism}) {
     const biomass = useBioStore(s => s.biomass)
     const actions = useBioStore(s => s.actions);
-    const incBiomass = useCallback(() => actions.changeBiomass(upgrade.cps), [
+    console.log(organism)
+    const incBiomass = useCallback(() => actions.changeBiomass(organism.cps), [
         actions,
+        organism.cps
         // upgrade.cps
     ]);
     useInterval(incBiomass, 1000);
