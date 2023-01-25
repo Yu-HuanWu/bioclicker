@@ -37,10 +37,10 @@ export const useBioStore = create((set, get) => ({
     }
 }));
 
-useBioStore.setState(JSON.parse(window.localStorage.getItem("state")));
+// useBioStore.setState(JSON.parse(window.localStorage.getItem("state")));
 
-useBioStore.subscribe(state => {
-    const stateCopy = { ...state };
-    delete stateCopy["actions"];
-    window.localStorage.setItem("state", JSON.stringify(stateCopy));
-});
+// useBioStore.subscribe(state => {
+//     const stateCopy = { ...state };
+//     delete stateCopy["actions"];
+//     window.localStorage.setItem("state", JSON.stringify(stateCopy));
+// });

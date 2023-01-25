@@ -14,7 +14,7 @@ export function OrganismList() {
                     .map(organism => (
                         <li key={organism.id} className="Organism">
                             <div>
-                                {organism.name} ({organism.cps}cps): {organism.cost}c
+                                {organism.name} ({organism.cps} biomass per second): {organism.cost} biomass
                             </div>
                             <button
                                 className="buyBtn"
