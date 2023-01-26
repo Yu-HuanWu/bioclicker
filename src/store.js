@@ -6,7 +6,13 @@ const getInitialOrganisms = () => ({
         id: 1,
         cps: 1,
         cost: 10,
-        name: "bacteria"
+        name: "prokaryote"
+    },
+    2: {
+        id: 2,
+        cps: 5,
+        cost: 50,
+        name: "eukaryote"
     },
 });
 

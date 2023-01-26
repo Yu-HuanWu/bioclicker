@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
 import { useBioStore } from "../store.js"
 
 function useInterval(callback, delay) {
@@ -22,15 +21,24 @@ function useInterval(callback, delay) {
     }, [delay]);
 }
 
-export function AutoIncrement({organism}) {
+export function AutoIncrement({tbps}) {
     const biomass = useBioStore(s => s.biomass)
     const actions = useBioStore(s => s.actions);
-    console.log(organism)
-    const incBiomass = useCallback(() => actions.changeBiomass(organism.cps), [
+    const incBiomass = useCallback(() => actions.changeBiomass(tbps), [
         actions,
-        organism.cps
-        // upgrade.cps
+        tbps
     ]);
     useInterval(incBiomass, 1000);
     return null
+}
+
+export function AutoIncrementByOrganisms() {
+    const purchasedUpgrades = useBioStore(s => s.purchasedUpgrades);
+    let totalBiomassPerSecond = 0;
+    purchasedUpgrades.forEach(organism => {
+        totalBiomassPerSecond += organism.cps
+    })
+    return (
+        <AutoIncrement tbps={totalBiomassPerSecond} />
+    );
 }
