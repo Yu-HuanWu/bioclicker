@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Game {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #383e49;
+  min-height: 90vh;
+}
+
+.Left {
+  border-style: inset;
+  border-width: 5px;
+  min-height: 85vh;
+}
+
+.Right {
+  border-style: inset;
+  border-width: 5px;
+  min-height: 85vh;
+}
+
+.Organism {
+  margin: 10px;
+  list-style: none;
+}
+
+.OrganismsList {
+  padding: 0px;
 }

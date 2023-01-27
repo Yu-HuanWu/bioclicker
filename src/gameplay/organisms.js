@@ -1,14 +1,14 @@
 import { useBioStore } from "../store.js"
 
 export function OrganismList() {
-    const score = useBioStore(s => s.score);
+    const biomass = useBioStore(s => s.biomass);
     const organisms = useBioStore(s => s.organisms);
     const actions = useBioStore(s => s.actions);
 
     return (
-        <div className="Organisms">
+        <div>
             <h3>Species</h3>
-            <ul>
+            <ul className="OrganismsList">
                 {Object.keys(organisms)
                     .map(key => organisms[key])
                     .map(organism => (
@@ -18,7 +18,7 @@ export function OrganismList() {
                             </div>
                             <button
                                 className="buyBtn"
-                                disabled={score < organism.cost}
+                                disabled={biomass < organism.cost}
                                 onClick={() => actions.purchase(organism.id)}
                             >
                                 Reproduce

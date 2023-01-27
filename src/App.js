@@ -8,11 +8,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         BIO CLICKER
-        <Polymerization/>
-        <Biomass/>
-        <AutoIncrementByOrganisms/>
-        <OrganismList/>
       </header>
+      <div className="Game">
+        <div className="Left">
+          <OrganismList/>
+        </div>
+        <div className="Center">
+          <Biomass/>
+          <Polymerization/>
+        </div>
+        <AutoIncrementByOrganisms/>
+      </div>
     </div>
   );
 }
