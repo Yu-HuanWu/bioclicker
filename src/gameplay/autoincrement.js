@@ -22,7 +22,6 @@ function useInterval(callback, delay) {
 }
 
 export function AutoIncrement({tbps}) {
-    const biomass = useBioStore(s => s.biomass)
     const actions = useBioStore(s => s.actions);
     const incBiomass = useCallback(() => actions.changeBiomass(tbps), [
         actions,
