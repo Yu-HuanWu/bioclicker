@@ -1,6 +1,7 @@
 import './App.css';
 import { AutoIncrementByOrganisms } from './gameplay/autoincrement.js'
 import { OrganismList } from './gameplay/organisms.js'
+import { TraitList } from './gameplay/traits.js'
 import { Biomass, Polymerization } from './gameplay/biomass.js'
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
         <div className="Center">
           <Biomass/>
           <Polymerization/>
+        </div>
+        <div className="Right">
+          <TraitList/>
         </div>
         <AutoIncrementByOrganisms/>
       </div>

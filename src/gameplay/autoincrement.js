@@ -33,10 +33,10 @@ export function AutoIncrement({tbps}) {
 }
 
 export function AutoIncrementByOrganisms() {
-    const purchasedUpgrades = useBioStore(s => s.purchasedUpgrades);
+    const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
     let totalBiomassPerSecond = 0;
-    purchasedUpgrades.forEach(organism => {
-        totalBiomassPerSecond += organism.cps
+    evolvedSpecies.forEach(organism => {
+        totalBiomassPerSecond += organism.bps
     })
     return (
         <AutoIncrement tbps={totalBiomassPerSecond} />

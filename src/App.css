@@ -50,12 +50,14 @@
   border-style: inset;
   border-width: 5px;
   min-height: 85vh;
+  min-width: 30vw;
 }
 
 .Right {
   border-style: inset;
   border-width: 5px;
   min-height: 85vh;
+  min-width: 30vw;
 }
 
 .Organism {

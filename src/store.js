@@ -4,40 +4,90 @@ const getInitialBiomass = () => 0;
 const getInitialOrganisms = () => ({
     1: {
         id: 1,
-        cps: 1,
-        cost: 10,
-        name: "prokaryote"
+        bps: 1,
+        biomassCost: 10,
+        name: "protobiont",
+        require: {
+            trait: 1,
+            species: 0,
+        }
     },
     2: {
         id: 2,
-        cps: 5,
-        cost: 50,
-        name: "eukaryote"
+        bps: 5,
+        biomassCost: 50,
+        name: "prokaryote",
+        require: {
+            trait: 2,
+            species: 1,
+        }
     },
+    3: {
+        id: 3,
+        bps: 10,
+        biomassCost: 100,
+        name: "eukaryote",
+        require: {
+            trait: 2,
+            species: 2,
+        }
+    },
+});
+
+const getInitialTraits = () => ({
+    1: {
+        id: 1,
+        multiplier: 1,
+        biomassCost: 10,
+        name: "RNA"
+    },
+    2: {
+        id: 2,
+        multiplier: 5,
+        biomassCost: 20,
+        name: "DNA"
+    },
+    3: {
+        id: 3,
+        multiplier: 10,
+        biomassCost: 100,
+        name: "u"
+    }
 });
 
 export const useBioStore = create((set, get) => ({
     biomass: getInitialBiomass(),
     organisms: getInitialOrganisms(),
-    purchasedUpgrades: [],
+    traits: getInitialTraits(),
+    evolvedSpecies: [],
+    evolvedTraits: [],
     actions: {
         newGame() {
             set({
                 biomass: getInitialBiomass(),
                 organisms: getInitialOrganisms(),
-                purchasedUpgrades: []
+                evolvedSpecies: []
             });
         },
         changeBiomass(amount = 1) {
             set(state => ({ biomass: state.biomass + amount }));
         },
-        purchase(upgradeId) {
+        speciesEvolution(organismId) {
             const { organisms, actions } = get();
-            const organism = organisms[upgradeId];
+            const organism = organisms[organismId];
 
-            actions.changeBiomass(-organism.cost);
+            actions.changeBiomass(-organism.biomassCost);
             set(state => ({
-                purchasedUpgrades: [...state.purchasedUpgrades, organism]
+                evolvedSpecies: [...state.evolvedSpecies, organism]
+            }));
+        },
+        traitEvolution(traitId) {
+            const { traits, actions } = get();
+            const trait = traits[traitId];
+
+            actions.changeBiomass(-trait.biomassCost);
+            set(state => ({
+                evolvedTraits: [...state.evolvedTraits, trait]
             }));
         }
     }
