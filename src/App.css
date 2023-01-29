@@ -39,9 +39,8 @@
 
 .Game {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #383e49;
   min-height: 90vh;
 }
@@ -49,22 +48,72 @@
 .Left {
   border-style: inset;
   border-width: 5px;
-  min-height: 85vh;
-  min-width: 30vw;
+  height: 85vh;
+  width: 30vw;
+  overflow-y: scroll;
 }
 
 .Right {
   border-style: inset;
   border-width: 5px;
-  min-height: 85vh;
-  min-width: 30vw;
+  height: 85vh;
+  width: 30vw;
+  overflow-y: scroll;
 }
 
 .Organism {
-  margin: 10px;
+  margin: 0;
+  background-color: azure;
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 5px inset;
 }
 
 .OrganismsList {
   padding: 0px;
+}
+
+.Reproduce {
+  /* border: none;
+  background: none; */
+  width: 20%;
+  height: 0;
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+
+.TraitsList {
+  padding: 0px;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  list-style: none;
+}
+
+.TraitEvolved {
+  border: 5px inset rgba(248, 255, 148, 0.92);
+  background-color: rgba(216, 224, 97, 0.92);;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.TraitUnevolved {
+  border: 5px outset rgba(68, 190, 206, 0.8);
+  background-color: rgba(104, 225, 241, 0.8);
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.Mutate {
+  border: none;
+  background: none;
+  width: 100%;
+  height: 0;
+  padding-top: 50%;
+  padding-bottom: 50%;
 }

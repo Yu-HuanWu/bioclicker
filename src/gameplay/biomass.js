@@ -3,7 +3,10 @@ import { useBioStore } from "../store.js"
 export function Biomass() {
     const biomass = useBioStore(s => s.biomass);
     return (
-        <h1>this is your current biomass: {biomass}</h1>
+        <div>
+            <h1>this is your current biomass:</h1>
+            <h2>{biomass}</h2>
+        </div>
     )
 }
 

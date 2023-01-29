@@ -20,28 +20,39 @@ function DisableEvolution(requirement) {
 export function OrganismList() {
     const biomass = useBioStore(s => s.biomass);
     const organisms = useBioStore(s => s.organisms);
+    const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
     const actions = useBioStore(s => s.actions);
+
+    const numberOfThisOrganism = (organismId) => {
+        let count = 0
+        evolvedSpecies.forEach(species => {
+            if (species.id === organismId) {
+                count += 1
+            }
+        })
+        return count
+    }
     return (
         <div>
             <h3>Species</h3>
-            <ul className="OrganismsList">
+            <div className="OrganismsList">
                 {Object.keys(organisms)
                     .map(key => organisms[key])
                     .map(organism => (
-                        <li key={organism.id} className="Organism">
+                        <div key={organism.id} className="Organism">
                             <div>
-                                {organism.name} ({organism.bps} biomass per second): {organism.biomassCost} biomass
+                                {organism.name} ({organism.bps} biomass per second) X {numberOfThisOrganism(organism.id)}
                             </div>
                             <button
-                                className="buyBtn"
+                                className="Reproduce"
                                 disabled={DisableEvolution(organism.require) || (biomass < organism.biomassCost)}
                                 onClick={() => actions.speciesEvolution(organism.id)}
                             >
-                                Reproduce
+                                Reproduce for {organism.biomassCost} biomass
                             </button>
-                        </li>
+                        </div>
                     ))}
-            </ul>
+            </div>
         </div>
     );
 }

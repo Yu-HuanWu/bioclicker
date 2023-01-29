@@ -11,27 +11,27 @@ export function TraitList() {
     })
     return (
         <div>
-            <h3>Mutations</h3>
-            <ul className="OrganismsList">
+            <h3>Traits</h3>
+            <ul className="TraitsList">
                 {Object.keys(traits)
                     .map(key => traits[key])
                     .map(trait => (
                         allTraitsId.includes(trait.id) ?
-                        <li key={trait.id} className="Organism">
-                            <div>
+                        <li key={trait.id} className="TraitEvolved">
+                            <div className="Mutate">
                                 {trait.name}
                             </div>
                         </li>
                         :
-                        <li key={trait.id} className="Organism">
-                            <div>
-                                {trait.name}: {trait.biomassCost} biomass
-                            </div>
+                        <li key={trait.id} className="TraitUnevolved">
                             <button
-                                className="buyBtn"
+                                className="Mutate"
                                 disabled={biomass < trait.biomassCost}
                                 onClick={() => actions.traitEvolution(trait.id)}
                             >
+                            <div>
+                                {trait.name}: {trait.biomassCost} biomass
+                            </div>
                                 Mutate
                             </button>
                         </li>

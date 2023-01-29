@@ -1,36 +1,72 @@
 import { create } from 'zustand';
 
-const getInitialBiomass = () => 0;
+const getInitialBiomass = () => 1000;
 const getInitialOrganisms = () => ({
     1: {
         id: 1,
         bps: 1,
         biomassCost: 10,
-        name: "protobiont",
+        name: "Protobiont",
         require: {
             trait: 1,
             species: 0,
-        }
+        },
+        text: "",
     },
     2: {
         id: 2,
         bps: 5,
         biomassCost: 50,
-        name: "prokaryote",
+        name: "Prokaryote",
         require: {
             trait: 2,
             species: 1,
-        }
+        },
+        text: "",
     },
     3: {
         id: 3,
         bps: 10,
-        biomassCost: 100,
-        name: "eukaryote",
+        biomassCost: 200,
+        name: "Eukaryote",
         require: {
-            trait: 2,
+            trait: 3,
             species: 2,
-        }
+        },
+        text: "",
+    },
+    4: {
+        id: 3,
+        bps: 10,
+        biomassCost: 200,
+        name: "Eukaryote",
+        require: {
+            trait: 3,
+            species: 2,
+        },
+        text: "",
+    },
+    5: {
+        id: 3,
+        bps: 10,
+        biomassCost: 200,
+        name: "Eukaryote",
+        require: {
+            trait: 3,
+            species: 2,
+        },
+        text: "",
+    },
+    6: {
+        id: 3,
+        bps: 10,
+        biomassCost: 200,
+        name: "Eukaryote",
+        require: {
+            trait: 3,
+            species: 2,
+        },
+        text: "",
     },
 });
 
@@ -38,20 +74,30 @@ const getInitialTraits = () => ({
     1: {
         id: 1,
         multiplier: 1,
-        biomassCost: 10,
-        name: "RNA"
+        biomassCost: 15,
+        name: "RNA",
+        text: "",
     },
     2: {
         id: 2,
-        multiplier: 5,
-        biomassCost: 20,
-        name: "DNA"
+        multiplier: 1,
+        biomassCost: 75,
+        name: "DNA",
+        text: "",
     },
     3: {
         id: 3,
-        multiplier: 10,
-        biomassCost: 100,
-        name: "u"
+        multiplier: 1,
+        biomassCost: 300,
+        name: "Nucleus",
+        text: "",
+    },
+    4: {
+        id: 4,
+        multiplier: 1,
+        biomassCost: 300,
+        name: "Multicelluarity",
+        text: "",
     }
 });
 
