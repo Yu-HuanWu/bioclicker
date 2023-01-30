@@ -11,7 +11,7 @@ export function TraitList() {
     })
     return (
         <div>
-            <h3>Traits</h3>
+            <div className="ColumnTitle">Traits</div>
             <ul className="TraitsList">
                 {Object.keys(traits)
                     .map(key => traits[key])

@@ -4,8 +4,8 @@ export function Biomass() {
     const biomass = useBioStore(s => s.biomass);
     return (
         <div>
-            <h1>this is your current biomass:</h1>
-            <h2>{biomass}</h2>
+            <div className="ColumnTitle">this is your current biomass:</div>
+            <div className="ColumnTitle">{biomass}</div>
         </div>
     )
 }

@@ -34,7 +34,7 @@ export function OrganismList() {
     }
     return (
         <div>
-            <h3>Species</h3>
+            <div className="ColumnTitle">Species</div>
             <div className="OrganismsList">
                 {Object.keys(organisms)
                     .map(key => organisms[key])
