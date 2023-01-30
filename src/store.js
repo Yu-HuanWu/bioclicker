@@ -76,28 +76,28 @@ const getInitialTraits = () => ({
         multiplier: 1,
         biomassCost: 15,
         name: "RNA",
-        text: "",
+        text: "Enable Protobiont",
     },
     2: {
         id: 2,
         multiplier: 1,
         biomassCost: 75,
         name: "DNA",
-        text: "",
+        text: "Enable Prokaryote",
     },
     3: {
         id: 3,
         multiplier: 1,
         biomassCost: 300,
         name: "Nucleus",
-        text: "",
+        text: "Enable Eukaryotes",
     },
     4: {
         id: 4,
         multiplier: 1,
         biomassCost: 300,
         name: "Endosymbiosis",
-        text: "",
+        text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
     },
     5: {
         id: 5,
@@ -148,7 +148,7 @@ export const useBioStore = create((set, get) => ({
             const organism = organisms[organismId];
 
             if (evolvedTraitsAffectOrganism(organismId, evolvedTraits) === 1) {
-                // prokaryote and endosymbiosis
+                // endosymbiosis effect: 
                 actions.changeBiomass(-organism.biomassCost);
                 if (diceRoll(10)) {
                     set(state => ({
