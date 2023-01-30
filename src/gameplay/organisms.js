@@ -17,6 +17,16 @@ function DisableEvolution(requirement) {
     return true
 }
 
+// function TraitsUpgrade(organismId) {
+//     const evolvedTraits = useBioStore(s => s.evolvedTraits)
+//     const allTraitsId = []
+//     evolvedTraits.forEach(trait => {
+//         allTraitsId.push(trait.id)
+//     })
+
+//     if (organism)
+// }
+
 export function OrganismList() {
     const biomass = useBioStore(s => s.biomass);
     const organisms = useBioStore(s => s.organisms);
@@ -46,7 +56,9 @@ export function OrganismList() {
                             <button
                                 className="Reproduce"
                                 disabled={DisableEvolution(organism.require) || (biomass < organism.biomassCost)}
-                                onClick={() => actions.speciesEvolution(organism.id)}
+                                onClick={() => {
+                                    actions.speciesEvolution(organism.id)
+                                }}
                             >
                                 Reproduce for {organism.biomassCost} biomass
                             </button>
