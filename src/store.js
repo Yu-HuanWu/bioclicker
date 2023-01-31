@@ -76,26 +76,26 @@ const getInitialTraits = () => ({
         multiplier: 1,
         biomassCost: 15,
         name: "RNA",
-        text: "Enable Protobiont",
+        text: "Unlock Protobiont",
     },
     2: {
         id: 2,
         multiplier: 1,
         biomassCost: 75,
         name: "DNA",
-        text: "Enable Prokaryote",
+        text: "Unlock Prokaryote",
     },
     3: {
         id: 3,
         multiplier: 1,
         biomassCost: 300,
         name: "Nucleus",
-        text: "Enable Eukaryotes",
+        text: "Unlock Eukaryotes",
     },
     4: {
         id: 4,
         multiplier: 1,
-        biomassCost: 300,
+        biomassCost: 400,
         name: "Endosymbiosis",
         text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
     },
@@ -146,24 +146,30 @@ export const useBioStore = create((set, get) => ({
         speciesEvolution(organismId) {
             const { organisms, actions, evolvedTraits } = get();
             const organism = organisms[organismId];
+            const evolvedTraitsAffectingOrganism = evolvedTraitsAffectOrganism(organismId, evolvedTraits)
 
-            if (evolvedTraitsAffectOrganism(organismId, evolvedTraits) === 1) {
-                // endosymbiosis effect: 
-                actions.changeBiomass(-organism.biomassCost);
-                if (diceRoll(10)) {
-                    set(state => ({
-                        evolvedSpecies: [...state.evolvedSpecies, organism, organisms[3]]
-                    }));
-                } else {
+            switch (evolvedTraitsAffectingOrganism) {
+                case 1:
+                    // endosymbiosis effect: 
+                    actions.changeBiomass(-organism.biomassCost);
+                    if (diceRoll(10)) {
+                        set(state => ({
+                            evolvedSpecies: [...state.evolvedSpecies, organism, organisms[3]]
+                        }));
+                    } else {
+                        set(state => ({
+                            evolvedSpecies: [...state.evolvedSpecies, organism]
+                        }));
+                    }
+                    break;
+                // case 2:
+                //     // code block
+                //     break;
+                default:
+                    actions.changeBiomass(-organism.biomassCost);
                     set(state => ({
                         evolvedSpecies: [...state.evolvedSpecies, organism]
                     }));
-                }
-            } else {
-                actions.changeBiomass(-organism.biomassCost);
-                set(state => ({
-                    evolvedSpecies: [...state.evolvedSpecies, organism]
-                }));
             }
         },
         traitEvolution(traitId) {
