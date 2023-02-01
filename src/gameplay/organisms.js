@@ -18,43 +18,51 @@ function DisableEvolution(requirement) {
 }
 
 export function OrganismList() {
-    const biomass = useBioStore(s => s.biomass);
-    const organisms = useBioStore(s => s.organisms);
-    const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
-    const actions = useBioStore(s => s.actions);
+  const biomass = useBioStore(s => s.biomass);
+  const organisms = useBioStore(s => s.organisms);
+  const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
+  const actions = useBioStore(s => s.actions);
 
-    const numberOfThisOrganism = (organismId) => {
-        let count = 0
-        evolvedSpecies.forEach(species => {
-            if (species.id === organismId) {
-                count += 1
-            }
-        })
-        return count
-    }
-    return (
-        <div>
-            <div className="ColumnTitle">Species</div>
-            <div className="OrganismsList">
-                {Object.keys(organisms)
-                    .map(key => organisms[key])
-                    .map(organism => (
-                        <div key={organism.id} className="Organism">
-                            <div>
-                                {organism.name} ({organism.bps} biomass per second) X {numberOfThisOrganism(organism.id)}
-                            </div>
-                            <button
-                                className="Reproduce"
-                                disabled={DisableEvolution(organism.require) || (biomass < organism.biomassCost)}
-                                onClick={() => {
-                                    actions.speciesEvolution(organism.id)
-                                }}
-                            >
-                                Reproduce for {organism.biomassCost} biomass
-                            </button>
-                        </div>
-                    ))}
+  const numberOfThisOrganism = (organismId) => {
+    let count = 0
+    evolvedSpecies.forEach(species => {
+      if (species.id === organismId) {
+        count += 1
+      }
+    })
+    return count
+  }
+  return (
+    <div>
+      <div className="ColumnTitle">Species</div>
+      <div className="OrganismsList">
+        {Object.keys(organisms)
+          .map(key => organisms[key])
+          .map(organism => {
+            let evolutionDisabled = DisableEvolution(organism.require)
+            const organismCount = numberOfThisOrganism(organism.id)
+            if (evolutionDisabled && organismCount === 0) {
+              return <></>
+            } else {
+              return (
+                <div key={organism.id} className="Organism">
+                <div>
+                    {organism.name} ({organism.bps} biomass per second) X {organismCount}
+                </div>
+                <button
+                  className="Reproduce"
+                  disabled={evolutionDisabled || (biomass < organism.biomassCost)}
+                  onClick={() => {
+                    actions.speciesEvolution(organism.id)
+                  }}
+                >
+                  Reproduce for {organism.biomassCost} biomass
+                </button>
             </div>
-        </div>
-    );
+            )}
+          })
+        }
+      </div>
+    </div>
+  );
 }
