@@ -35,17 +35,17 @@ const getInitialOrganisms = () => ({
         },
         text: "",
     },
-    // 4: {
-    //     id: 3,
-    //     bps: 10,
-    //     biomassCost: 200,
-    //     name: "Eukaryote",
-    //     require: {
-    //         trait: 3,
-    //         species: 2,
-    //     },
-    //     text: "",
-    // },
+    4: {
+        id: 4,
+        bps: 40,
+        biomassCost: 1000,
+        name: "Sponge",
+        require: {
+            trait: 5,
+            species: 3,
+        },
+        text: "",
+    },
     // 5: {
     //     id: 3,
     //     bps: 10,
