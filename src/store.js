@@ -102,8 +102,15 @@ const getInitialTraits = () => ({
     5: {
         id: 5,
         multiplier: 1,
-        biomassCost: 300,
+        biomassCost: 1500,
         name: "Multicelluarity",
+        text: "Unlock Sponge",
+    },
+    6: {
+        id: 6,
+        multiplier: 1,
+        biomassCost: 2000,
+        name: "Differentiation",
         text: "",
     }
 });
