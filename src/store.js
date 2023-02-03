@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 
+const getInitialCounter = () => 0;
 const getInitialBiomass = () => 1000;
 const getInitialOrganisms = () => ({
     1: {
@@ -133,12 +134,21 @@ function diceRoll(percentage) {
 }
 
 export const useBioStore = create((set, get) => ({
+    counter: getInitialCounter(),
     biomass: getInitialBiomass(),
     organisms: getInitialOrganisms(),
     traits: getInitialTraits(),
     evolvedSpecies: [],
     evolvedTraits: [],
     actions: {
+        increaseCounter() {
+            const { counter } = get();
+            if (counter >= 120) {
+                set({ counter: 0 })
+            } else {
+                set(state => ({counter: state.counter + 1}))
+            }
+        },
         newGame() {
             set({
                 biomass: getInitialBiomass(),
