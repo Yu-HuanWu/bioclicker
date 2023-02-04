@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 const getInitialCounter = () => 0;
 const getInitialBiomass = () => 1000;
+const getInitialEnergy = () => 0;
 const getInitialOrganisms = () => ({
     1: {
         id: 1,
@@ -160,6 +161,7 @@ function diceRoll(percentage) {
 export const useBioStore = create((set, get) => ({
     counter: getInitialCounter(),
     biomass: getInitialBiomass(),
+    energy: getInitialEnergy(),
     organisms: getInitialOrganisms(),
     traits: getInitialTraits(),
     evolvedSpecies: [],
