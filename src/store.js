@@ -78,6 +78,10 @@ const getInitialTraits = () => ({
         biomassCost: 15,
         name: "RNA",
         text: "Unlock Protobiont",
+        require: {
+            trait: 0,
+            species: 0,
+        },
     },
     2: {
         id: 2,
@@ -85,6 +89,10 @@ const getInitialTraits = () => ({
         biomassCost: 75,
         name: "DNA",
         text: "Unlock Prokaryote",
+        require: {
+            trait: 1, // RNA
+            species: 0,
+        },
     },
     3: {
         id: 3,
@@ -92,6 +100,10 @@ const getInitialTraits = () => ({
         biomassCost: 300,
         name: "Nucleus",
         text: "Unlock Eukaryotes",
+        require: {
+            trait: 2, // DNA
+            species: 2, // prokaryote
+        },
     },
     4: {
         id: 4,
@@ -99,6 +111,10 @@ const getInitialTraits = () => ({
         biomassCost: 400,
         name: "Endosymbiosis",
         text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
+        require: {
+            trait: 2, // DNA
+            species: 2, // prokaryote
+        },
     },
     5: {
         id: 5,
@@ -106,6 +122,10 @@ const getInitialTraits = () => ({
         biomassCost: 1500,
         name: "Multicelluarity",
         text: "Unlock Sponge",
+        require: {
+            trait: 0,
+            species: 3, // eukaryote
+        },
     },
     6: {
         id: 6,
@@ -113,6 +133,10 @@ const getInitialTraits = () => ({
         biomassCost: 2000,
         name: "Differentiation",
         text: "",
+        require: {
+            trait: 5, // multicellularity
+            species: 0,
+        },
     }
 });
 
@@ -143,6 +167,7 @@ export const useBioStore = create((set, get) => ({
     actions: {
         increaseCounter() {
             const { counter } = get();
+            // console.log(counter)
             if (counter >= 120) {
                 set({ counter: 0 })
             } else {
