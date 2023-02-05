@@ -7,6 +7,7 @@ const getInitialOrganisms = () => ({
     1: {
         id: 1,
         bps: 1,
+        eps: 0,
         biomassCost: 10,
         name: "Protobiont",
         require: {
@@ -18,6 +19,7 @@ const getInitialOrganisms = () => ({
     2: {
         id: 2,
         bps: 5,
+        eps: 0,
         biomassCost: 50,
         name: "Prokaryote",
         require: {
@@ -29,6 +31,7 @@ const getInitialOrganisms = () => ({
     3: {
         id: 3,
         bps: 10,
+        eps: 0,
         biomassCost: 200,
         name: "Eukaryote",
         require: {
@@ -40,6 +43,7 @@ const getInitialOrganisms = () => ({
     4: {
         id: 4,
         bps: 40,
+        eps: 0,
         biomassCost: 1000,
         name: "Sponge",
         require: {
@@ -51,6 +55,7 @@ const getInitialOrganisms = () => ({
     // 5: {
     //     id: 3,
     //     bps: 10,
+    //     eps: 0,
     //     biomassCost: 200,
     //     name: "Eukaryote",
     //     require: {
@@ -62,6 +67,7 @@ const getInitialOrganisms = () => ({
     // 6: {
     //     id: 3,
     //     bps: 10,
+    //     eps: 0,
     //     biomassCost: 200,
     //     name: "Eukaryote",
     //     require: {
@@ -98,6 +104,17 @@ const getInitialTraits = () => ({
     3: {
         id: 3,
         multiplier: 1,
+        biomassCost: 75,
+        name: "Photosynthesis",
+        text: "Unlock ",
+        require: {
+            trait: 1, // RNA
+            species: 0,
+        },
+    },
+    4: {
+        id: 4,
+        multiplier: 1,
         biomassCost: 300,
         name: "Nucleus",
         text: "Unlock Eukaryotes",
@@ -106,8 +123,8 @@ const getInitialTraits = () => ({
             species: 2, // prokaryote
         },
     },
-    4: {
-        id: 4,
+    5: {
+        id: 5,
         multiplier: 1,
         biomassCost: 400,
         name: "Endosymbiosis",
@@ -117,8 +134,8 @@ const getInitialTraits = () => ({
             species: 2, // prokaryote
         },
     },
-    5: {
-        id: 5,
+    6: {
+        id: 6,
         multiplier: 1,
         biomassCost: 1500,
         name: "Multicelluarity",
@@ -128,14 +145,14 @@ const getInitialTraits = () => ({
             species: 3, // eukaryote
         },
     },
-    6: {
-        id: 6,
+    7: {
+        id: 7,
         multiplier: 1,
         biomassCost: 2000,
         name: "Differentiation",
         text: "",
         require: {
-            trait: 5, // multicellularity
+            trait: 6, // multicellularity
             species: 0,
         },
     }
@@ -186,6 +203,9 @@ export const useBioStore = create((set, get) => ({
         },
         changeBiomass(amount = 1) {
             set(state => ({ biomass: state.biomass + amount }));
+        },
+        changeEnergy(amount = 1) {
+            set(state => ({ energy: state.energy + amount }));
         },
         speciesEvolution(organismId) {
             const { organisms, actions, evolvedTraits } = get();

@@ -2,7 +2,7 @@ import './App.css';
 import { AutoIncrementByOrganisms } from './gameplay/autoincrement.js'
 import { OrganismList } from './gameplay/organisms.js'
 import { TraitList } from './gameplay/traits.js'
-import { Biomass, Polymerization } from './gameplay/biomass.js'
+import { Biomass, Polymerization, Energy } from './gameplay/biomass.js'
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <div className="Center">
           <Biomass/>
           <Polymerization/>
+          <Energy/>
         </div>
         <div className="Right">
           <TraitList/>

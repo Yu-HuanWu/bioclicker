@@ -18,3 +18,13 @@ export function Polymerization() {
         </button>
     );
 }
+
+export function Energy() {
+    const energy = useBioStore(s => s.energy);
+    return (
+        <div>
+            <div className="ColumnTitle">this is your current energy:</div>
+            <div className="ColumnTitle">{energy}</div>
+        </div>
+    )
+}
