@@ -30,6 +30,18 @@ const getInitialOrganisms = () => ({
     },
     3: {
         id: 3,
+        bps: 5,
+        eps: 0,
+        biomassCost: 50,
+        name: "photosynthesis",
+        require: {
+            trait: 4, // Photosynthesis
+            species: 2, //prokaryote
+        },
+        text: "",
+    },
+    4: {
+        id: 4,
         bps: 10,
         eps: 0,
         biomassCost: 200,
@@ -40,15 +52,15 @@ const getInitialOrganisms = () => ({
         },
         text: "",
     },
-    4: {
-        id: 4,
+    5: {
+        id: 5,
         bps: 40,
         eps: 0,
         biomassCost: 1000,
         name: "Sponge",
         require: {
             trait: 5,
-            species: 3,
+            species: 4,
         },
         text: "",
     },
@@ -153,7 +165,7 @@ const getInitialTraits = () => ({
         text: "Unlock Sponge",
         require: {
             trait: 5, // nucleus
-            species: 3, // eukaryote
+            species: 4, // eukaryote
         },
     },
     8: {
@@ -164,7 +176,7 @@ const getInitialTraits = () => ({
         text: "",
         require: {
             trait: 7, // multicellularity
-            species: 0,
+            species: 5,
         },
     }
 });
