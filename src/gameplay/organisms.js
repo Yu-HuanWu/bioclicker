@@ -1,6 +1,6 @@
 import { useBioStore } from "../store.js"
 
-function DisableEvolution(requirement) {
+export function DisableEvolution(requirement) {
     const evolvedTraits = useBioStore(s => s.evolvedTraits)
     const evolvedSpecies = useBioStore(s => s.evolvedSpecies)
     const allTraitsId = []

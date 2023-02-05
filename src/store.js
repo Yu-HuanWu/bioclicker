@@ -11,7 +11,7 @@ const getInitialOrganisms = () => ({
         biomassCost: 10,
         name: "Protobiont",
         require: {
-            trait: 1,
+            trait: 2,
             species: 0,
         },
         text: "",
@@ -23,7 +23,7 @@ const getInitialOrganisms = () => ({
         biomassCost: 50,
         name: "Prokaryote",
         require: {
-            trait: 2,
+            trait: 3, // DNA
             species: 1,
         },
         text: "",
@@ -35,7 +35,7 @@ const getInitialOrganisms = () => ({
         biomassCost: 200,
         name: "Eukaryote",
         require: {
-            trait: 3,
+            trait: 5, //nucleus
             species: 2,
         },
         text: "",
@@ -82,9 +82,9 @@ const getInitialTraits = () => ({
     1: {
         id: 1,
         multiplier: 1,
-        biomassCost: 15,
-        name: "RNA",
-        text: "Unlock Protobiont",
+        biomassCost: 10,
+        name: "Carbohydrate",
+        text: "Unlock Energy",
         require: {
             trait: 0,
             species: 0,
@@ -93,11 +93,11 @@ const getInitialTraits = () => ({
     2: {
         id: 2,
         multiplier: 1,
-        biomassCost: 75,
-        name: "DNA",
-        text: "Unlock Prokaryote",
+        biomassCost: 15,
+        name: "RNA",
+        text: "Unlock Protobiont",
         require: {
-            trait: 1, // RNA
+            trait: 0,
             species: 0,
         },
     },
@@ -105,10 +105,10 @@ const getInitialTraits = () => ({
         id: 3,
         multiplier: 1,
         biomassCost: 75,
-        name: "Photosynthesis",
-        text: "Unlock ",
+        name: "DNA",
+        text: "Unlock Prokaryote",
         require: {
-            trait: 1, // RNA
+            trait: 2, // RNA
             species: 0,
         },
     },
@@ -116,43 +116,54 @@ const getInitialTraits = () => ({
         id: 4,
         multiplier: 1,
         biomassCost: 300,
-        name: "Nucleus",
-        text: "Unlock Eukaryotes",
+        name: "Photosynthesis",
+        text: "Unlock ",
         require: {
-            trait: 2, // DNA
-            species: 2, // prokaryote
+            trait: 2, // RNA
+            species: 0,
         },
     },
     5: {
         id: 5,
         multiplier: 1,
-        biomassCost: 400,
-        name: "Endosymbiosis",
-        text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
+        biomassCost: 300,
+        name: "Nucleus",
+        text: "Unlock Eukaryotes",
         require: {
-            trait: 2, // DNA
+            trait: 3, // DNA
             species: 2, // prokaryote
         },
     },
     6: {
         id: 6,
         multiplier: 1,
-        biomassCost: 1500,
-        name: "Multicelluarity",
-        text: "Unlock Sponge",
+        biomassCost: 400,
+        name: "Endosymbiosis",
+        text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
         require: {
-            trait: 0,
-            species: 3, // eukaryote
+            trait: 3, // DNA
+            species: 2, // prokaryote
         },
     },
     7: {
         id: 7,
         multiplier: 1,
+        biomassCost: 1500,
+        name: "Multicelluarity",
+        text: "Unlock Sponge",
+        require: {
+            trait: 5, // nucleus
+            species: 3, // eukaryote
+        },
+    },
+    8: {
+        id: 8,
+        multiplier: 1,
         biomassCost: 2000,
         name: "Differentiation",
         text: "",
         require: {
-            trait: 6, // multicellularity
+            trait: 7, // multicellularity
             species: 0,
         },
     }

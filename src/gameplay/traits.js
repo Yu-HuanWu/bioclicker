@@ -1,4 +1,5 @@
 import { useBioStore } from "../store.js"
+import { DisableEvolution } from "./organisms.js";
 
 export function TraitList() {
     const biomass = useBioStore(s => s.biomass);
@@ -15,7 +16,12 @@ export function TraitList() {
             <ul className="TraitsList">
                 {Object.keys(traits)
                     .map(key => traits[key])
-                    .map(trait => (
+                    .map(trait => {
+                        let mutationDisabled = DisableEvolution(trait.require)
+                        if (mutationDisabled) {
+                            return <></>
+                        } else {
+                            return (
                         allTraitsId.includes(trait.id) ?
                         <li key={trait.id} className="TraitEvolved">
                             <div className="Mutate">
@@ -35,7 +41,8 @@ export function TraitList() {
                                 Mutate
                             </button>
                         </li>
-                    ))}
+                        )}
+                })}
             </ul>
         </div>
     );
