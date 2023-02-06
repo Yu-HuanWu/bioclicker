@@ -16,20 +16,20 @@ export function TraitList() {
             <ul className="TraitsList">
                 {Object.keys(traits)
                     .map(key => traits[key])
-                    .map(trait => {
+                    .map((trait, i) => {
                         let mutationDisabled = DisableEvolution(trait.require)
                         if (mutationDisabled) {
-                            return <></>
+                            return <div key={i}></div>
                         } else {
                             return (
                         allTraits.includes(trait.name) ?
-                        <li key={trait.biomassCost} className="TraitEvolved">
+                        <li key={i} className="TraitEvolved">
                             <div className="Mutate">
                                 {trait.name}
                             </div>
                         </li>
                         :
-                        <li key={trait.biomassCost} className="TraitUnevolved">
+                        <li key={i} className="TraitUnevolved">
                             <button
                                 className="Mutate"
                                 disabled={biomass < trait.biomassCost}

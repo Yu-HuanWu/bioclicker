@@ -38,14 +38,14 @@ export function OrganismList() {
       <div className="OrganismsList">
         {Object.keys(organisms)
           .map(key => organisms[key])
-          .map(organism => {
+          .map((organism, i) => {
             let evolutionDisabled = DisableEvolution(organism.require)
             const organismCount = numberOfThisOrganism(organism.name)
             if (evolutionDisabled && organismCount === 0) {
-              return <></>
+              return <div key={i}></div>
             } else {
               return (
-                <div key={organism.bps} className="Organism">
+                <div key={i} className="Organism">
                 <div>
                     {organism.name} ({organism.bps} biomass per second) X {organismCount}
                 </div>
