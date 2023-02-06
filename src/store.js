@@ -4,63 +4,58 @@ const getInitialCounter = () => 0;
 const getInitialBiomass = () => 1000;
 const getInitialEnergy = () => 0;
 const getInitialOrganisms = () => ({
-    1: {
-        id: 1,
+    "Protobiont": {
         bps: 1,
         eps: 0,
         biomassCost: 10,
         name: "Protobiont",
         require: {
-            trait: 2,
+            trait: "RNA",
             species: 0,
         },
         text: "",
     },
-    2: {
-        id: 2,
+    "Prokaryote": {
         bps: 5,
         eps: 0,
         biomassCost: 50,
         name: "Prokaryote",
         require: {
-            trait: 3, // DNA
-            species: 1,
+            trait: "DNA", // DNA
+            species: "Protobiont",
         },
         text: "",
     },
-    3: {
-        id: 3,
+    "Algae": {
         bps: 5,
         eps: 0,
         biomassCost: 50,
-        name: "photosynthesis",
+        name: "Algae",
         require: {
-            trait: 4, // Photosynthesis
-            species: 2, //prokaryote
+            trait: "Photosynthesis", // Photosynthesis
+            species: "Prokaryote", //prokaryote
         },
         text: "",
     },
-    4: {
-        id: 4,
+    "Eukaryote": {
         bps: 10,
         eps: 0,
         biomassCost: 200,
         name: "Eukaryote",
         require: {
-            trait: 5, //nucleus
-            species: 2,
+            trait: "Nucleus", //nucleus
+            species: "Prokaryote",
         },
         text: "",
     },
-    5: {
-        id: 5,
+    "Sponge": {
         bps: 40,
         eps: 0,
         biomassCost: 1000,
         name: "Sponge",
         require: {
-            trait: 5,
-            species: 4,
+            trait: "Multicelluarity",
+            species: "Eukaryote",
         },
         text: "",
     },
@@ -92,7 +87,6 @@ const getInitialOrganisms = () => ({
 
 const getInitialTraits = () => ({
     "Carbohydrate": {
-        id: 1,
         multiplier: 1,
         biomassCost: 10,
         name: "Carbohydrate",
@@ -103,7 +97,6 @@ const getInitialTraits = () => ({
         },
     },
     "RNA": {
-        id: 2,
         multiplier: 1,
         biomassCost: 15,
         name: "RNA",
@@ -114,80 +107,74 @@ const getInitialTraits = () => ({
         },
     },
     "DNA": {
-        id: 3,
         multiplier: 1,
         biomassCost: 75,
         name: "DNA",
         text: "Unlock Prokaryote",
         require: {
-            trait: 2, // RNA
+            trait: "RNA", // RNA
             species: 0,
         },
     },
     "Photosynthesis": {
-        id: 4,
         multiplier: 1,
         biomassCost: 300,
         name: "Photosynthesis",
         text: "Unlock ",
         require: {
-            trait: 2, // RNA
+            trait: "RNA", // RNA
             species: 0,
         },
     },
     "Nucleus": {
-        id: 5,
         multiplier: 1,
-        biomassCost: 300,
+        biomassCost: 350,
         name: "Nucleus",
         text: "Unlock Eukaryotes",
         require: {
-            trait: 3, // DNA
-            species: 2, // prokaryote
+            trait: "DNA", // DNA
+            species: "Prokaryote", // prokaryote
         },
     },
     "Endosymbiosis": {
-        id: 6,
         multiplier: 1,
         biomassCost: 400,
         name: "Endosymbiosis",
         text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
         require: {
-            trait: 3, // DNA
-            species: 2, // prokaryote
+            trait: "DNA", // DNA
+            species: "Prokaryote", // prokaryote
         },
     },
     "Multicelluarity": {
-        id: 7,
         multiplier: 1,
         biomassCost: 1500,
         name: "Multicelluarity",
         text: "Unlock Sponge",
         require: {
-            trait: 5, // nucleus
-            species: 4, // eukaryote
+            trait: "Nucleus", // nucleus
+            species: "Eukaryote", // eukaryote
         },
     },
     "Differentiation": {
-        id: 8,
         multiplier: 1,
         biomassCost: 2000,
         name: "Differentiation",
         text: "",
         require: {
-            trait: 7, // multicellularity
-            species: 5,
+            trait: "Multicelluarity", // multicellularity
+            species: "Sponge",
         },
     }
 });
 
-function evolvedTraitsAffectOrganism(organismId, evolvedTraits) {
-    const allTraitsId = []
+function evolvedTraitsAffectOrganism(organismName, evolvedTraits) {
+    const allTraits = []
     evolvedTraits.forEach(trait => {
-        allTraitsId.push(trait.id)
+        allTraits.push(trait.name)
     })
 
-    if (organismId === 2 && allTraitsId.includes(4)) {
+    if (organismName === "Prokaryote" && allTraits.includes("Endosymbiosis")) {
         // prokaryote and endosymbiosis
         return 1
     }
@@ -230,18 +217,18 @@ export const useBioStore = create((set, get) => ({
         changeEnergy(amount = 1) {
             set(state => ({ energy: state.energy + amount }));
         },
-        speciesEvolution(organismId) {
+        speciesEvolution(organismName) {
             const { organisms, actions, evolvedTraits } = get();
-            const organism = organisms[organismId];
-            const evolvedTraitsAffectingOrganism = evolvedTraitsAffectOrganism(organismId, evolvedTraits)
+            const organism = organisms[organismName];
+            const evolvedTraitsAffectingOrganism = evolvedTraitsAffectOrganism(organismName, evolvedTraits)
 
             switch (evolvedTraitsAffectingOrganism) {
                 case 1:
                     // endosymbiosis effect: 
                     actions.changeBiomass(-organism.biomassCost);
-                    if (diceRoll(10)) {
+                    if (diceRoll(50)) {
                         set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism, organisms[3]]
+                            evolvedSpecies: [...state.evolvedSpecies, organism, organisms["Eukaryote"]]
                         }));
                     } else {
                         set(state => ({
@@ -259,9 +246,9 @@ export const useBioStore = create((set, get) => ({
                     }));
             }
         },
-        traitEvolution(traitId) {
+        traitEvolution(traitName) {
             const { traits, actions } = get();
-            const trait = traits[traitId];
+            const trait = traits[traitName];
 
             actions.changeBiomass(-trait.biomassCost);
             set(state => ({

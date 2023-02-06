@@ -8,7 +8,7 @@ import { Biomass, Polymerization, Energy } from './gameplay/biomass.js'
 function App() {
   const evolvedTraits = useBioStore(s => s.evolvedTraits)
   const carbohydrateEvolved = evolvedTraits.filter(trait=> {
-    return trait.id === 1;
+    return trait.name === "Carbohydrate";
   }).length > 0;
   return (
     <div className="App">

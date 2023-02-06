@@ -3,15 +3,15 @@ import { useBioStore } from "../store.js"
 export function DisableEvolution(requirement) {
     const evolvedTraits = useBioStore(s => s.evolvedTraits)
     const evolvedSpecies = useBioStore(s => s.evolvedSpecies)
-    const allTraitsId = []
+    const allTraits = []
     evolvedTraits.forEach(trait => {
-        allTraitsId.push(trait.id)
+        allTraits.push(trait.name)
     })
-    const allSpeciesId = []
+    const allSpecies = []
     evolvedSpecies.forEach(species => {
-        allSpeciesId.push(species.id)
+        allSpecies.push(species.name)
     })
-    if ((allTraitsId.includes(requirement.trait) || requirement.trait === 0) && (allSpeciesId.includes(requirement.species) || requirement.species === 0)) {
+    if ((allTraits.includes(requirement.trait) || requirement.trait === 0) && (allSpecies.includes(requirement.species) || requirement.species === 0)) {
         return false
     }
     return true
@@ -23,10 +23,10 @@ export function OrganismList() {
   const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
   const actions = useBioStore(s => s.actions);
 
-  const numberOfThisOrganism = (organismId) => {
+  const numberOfThisOrganism = (organismName) => {
     let count = 0
     evolvedSpecies.forEach(species => {
-      if (species.id === organismId) {
+      if (species.name === organismName) {
         count += 1
       }
     })
@@ -40,12 +40,12 @@ export function OrganismList() {
           .map(key => organisms[key])
           .map(organism => {
             let evolutionDisabled = DisableEvolution(organism.require)
-            const organismCount = numberOfThisOrganism(organism.id)
+            const organismCount = numberOfThisOrganism(organism.name)
             if (evolutionDisabled && organismCount === 0) {
               return <></>
             } else {
               return (
-                <div key={organism.id} className="Organism">
+                <div key={organism.bps} className="Organism">
                 <div>
                     {organism.name} ({organism.bps} biomass per second) X {organismCount}
                 </div>
@@ -53,7 +53,7 @@ export function OrganismList() {
                   className="Reproduce"
                   disabled={evolutionDisabled || (biomass < organism.biomassCost)}
                   onClick={() => {
-                    actions.speciesEvolution(organism.id)
+                    actions.speciesEvolution(organism.name)
                   }}
                 >
                   Reproduce for {organism.biomassCost} biomass

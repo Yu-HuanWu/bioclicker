@@ -6,9 +6,9 @@ export function TraitList() {
     const traits = useBioStore(s => s.traits);
     const actions = useBioStore(s => s.actions);
     const evolvedTraits = useBioStore(s => s.evolvedTraits)
-    const allTraitsId = []
+    const allTraits = []
     evolvedTraits.forEach(trait => {
-        allTraitsId.push(trait.id)
+        allTraits.push(trait.name)
     })
     return (
         <div>
@@ -22,18 +22,18 @@ export function TraitList() {
                             return <></>
                         } else {
                             return (
-                        allTraitsId.includes(trait.id) ?
-                        <li key={trait.id} className="TraitEvolved">
+                        allTraits.includes(trait.name) ?
+                        <li key={trait.biomassCost} className="TraitEvolved">
                             <div className="Mutate">
                                 {trait.name}
                             </div>
                         </li>
                         :
-                        <li key={trait.id} className="TraitUnevolved">
+                        <li key={trait.biomassCost} className="TraitUnevolved">
                             <button
                                 className="Mutate"
                                 disabled={biomass < trait.biomassCost}
-                                onClick={() => actions.traitEvolution(trait.id)}
+                                onClick={() => actions.traitEvolution(trait.name)}
                             >
                             <div>
                                 {trait.name}: {trait.biomassCost} biomass
