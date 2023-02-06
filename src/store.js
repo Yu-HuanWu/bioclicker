@@ -91,7 +91,7 @@ const getInitialOrganisms = () => ({
 });
 
 const getInitialTraits = () => ({
-    1: {
+    "Carbohydrate": {
         id: 1,
         multiplier: 1,
         biomassCost: 10,
@@ -102,7 +102,7 @@ const getInitialTraits = () => ({
             species: 0,
         },
     },
-    2: {
+    "RNA": {
         id: 2,
         multiplier: 1,
         biomassCost: 15,
@@ -113,7 +113,7 @@ const getInitialTraits = () => ({
             species: 0,
         },
     },
-    3: {
+    "DNA": {
         id: 3,
         multiplier: 1,
         biomassCost: 75,
@@ -124,7 +124,7 @@ const getInitialTraits = () => ({
             species: 0,
         },
     },
-    4: {
+    "Photosynthesis": {
         id: 4,
         multiplier: 1,
         biomassCost: 300,
@@ -135,7 +135,7 @@ const getInitialTraits = () => ({
             species: 0,
         },
     },
-    5: {
+    "Nucleus": {
         id: 5,
         multiplier: 1,
         biomassCost: 300,
@@ -146,7 +146,7 @@ const getInitialTraits = () => ({
             species: 2, // prokaryote
         },
     },
-    6: {
+    "Endosymbiosis": {
         id: 6,
         multiplier: 1,
         biomassCost: 400,
@@ -157,7 +157,7 @@ const getInitialTraits = () => ({
             species: 2, // prokaryote
         },
     },
-    7: {
+    "Multicelluarity": {
         id: 7,
         multiplier: 1,
         biomassCost: 1500,
@@ -168,7 +168,7 @@ const getInitialTraits = () => ({
             species: 4, // eukaryote
         },
     },
-    8: {
+    "Differentiation": {
         id: 8,
         multiplier: 1,
         biomassCost: 2000,
