@@ -35,7 +35,7 @@ const getInitialOrganisms = () => ({
             trait: "Photosynthesis",
             species: "Prokaryote",
         },
-        text: "",
+        text: "more (sun) power to you",
     },
     "Eukaryote": {
         bps: 10,
