@@ -13,7 +13,7 @@ const getInitialOrganisms = () => ({
             trait: "RNA",
             species: 0,
         },
-        text: "",
+        text: "sac of fat with gene",
     },
     "Prokaryote": {
         bps: 5,
@@ -24,16 +24,16 @@ const getInitialOrganisms = () => ({
             trait: "DNA", // DNA
             species: "Protobiont",
         },
-        text: "",
+        text: "no nucleus, no problem",
     },
-    "Algae": {
+    "Cyanobacteria": {
         bps: 5,
-        eps: 0,
+        eps: 2,
         biomassCost: 50,
-        name: "Algae",
+        name: "Cyanobacteria",
         require: {
-            trait: "Photosynthesis", // Photosynthesis
-            species: "Prokaryote", //prokaryote
+            trait: "Photosynthesis",
+            species: "Prokaryote",
         },
         text: "",
     },

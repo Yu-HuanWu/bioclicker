@@ -45,21 +45,24 @@ export function OrganismList() {
               return <div key={i}></div>
             } else {
               return (
-                <div key={i} className="Organism">
-                <div>
-                    {organism.name} ({organism.bps} biomass per second) X {organismCount}
+                <div key={i}
+                title={organism.text}
+                className="Organism">
+                  <div>
+                      {organism.name} ({organism.bps} biomass per second) X {organismCount}
+                  </div>
+                  <button
+                    className="Reproduce"
+                    disabled={evolutionDisabled || (biomass < organism.biomassCost)}
+                    onClick={() => {
+                      actions.speciesEvolution(organism.name)
+                    }}
+                  >
+                    Reproduce for {organism.biomassCost} biomass
+                  </button>
                 </div>
-                <button
-                  className="Reproduce"
-                  disabled={evolutionDisabled || (biomass < organism.biomassCost)}
-                  onClick={() => {
-                    actions.speciesEvolution(organism.name)
-                  }}
-                >
-                  Reproduce for {organism.biomassCost} biomass
-                </button>
-            </div>
-            )}
+              )
+            }
           })
         }
       </div>

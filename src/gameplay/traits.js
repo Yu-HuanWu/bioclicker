@@ -24,7 +24,7 @@ export function TraitList() {
               return (
                 allTraits.includes(trait.name) ?
                 <li key={i} className="TraitEvolved">
-                  <div className="Mutate">
+                  <div title={trait.text} className="Mutate">
                     {trait.name}
                   </div>
                 </li>
@@ -32,6 +32,7 @@ export function TraitList() {
                 <li key={i} className="TraitUnevolved">
                   <button
                     className="Mutate"
+                    title={trait.text}
                     disabled={biomass < trait.biomassCost}
                     onClick={() => actions.traitEvolution(trait.name)}
                   >
