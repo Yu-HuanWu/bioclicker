@@ -21,14 +21,16 @@ function useInterval(callback, delay) {
     }, [delay]);
 }
 
-export function AutoIncrement({tbps}) {
+export function AutoIncrement({tbps, teps}) {
     const actions = useBioStore(s => s.actions);
     const incBiomass = useCallback(() => {
         actions.changeBiomass(tbps)
+        actions.changeEnergy(teps)
         actions.increaseCounter()
     }, [
         actions,
-        tbps
+        tbps,
+        teps,
     ]);
     useInterval(incBiomass, 1000);
     return null
@@ -37,10 +39,12 @@ export function AutoIncrement({tbps}) {
 export function AutoIncrementByOrganisms() {
     const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
     let totalBiomassPerSecond = 0;
+    let totalEnergyPerSecond = 0;
     evolvedSpecies.forEach(organism => {
-        totalBiomassPerSecond += organism.bps
+        totalBiomassPerSecond += organism.bps;
+        totalEnergyPerSecond += organism.eps;
     })
     return (
-        <AutoIncrement tbps={totalBiomassPerSecond} />
+        <AutoIncrement tbps={totalBiomassPerSecond} teps={totalEnergyPerSecond} />
     );
 }
