@@ -19,6 +19,7 @@ export function DisableEvolution(requirement) {
 
 export function OrganismList() {
   const biomass = useBioStore(s => s.biomass);
+  const energy = useBioStore(s => s.energy);
   const organisms = useBioStore(s => s.organisms);
   const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
   const actions = useBioStore(s => s.actions);
@@ -49,16 +50,20 @@ export function OrganismList() {
                 title={organism.text}
                 className="Organism">
                   <div>
-                      {organism.name} ({organism.bps} biomass per second) X {organismCount}
+                    {organism.name} <br/>
+                    requires {organism.biomassCost} biomass {organism.energyCost !== 0 &&
+                      `and ${organism.energyCost} energy`
+                    } <br/>
+                    ({organism.bps} biomass per second) X {organismCount}
                   </div>
                   <button
                     className="Reproduce"
-                    disabled={evolutionDisabled || (biomass < organism.biomassCost)}
+                    disabled={evolutionDisabled || (biomass < organism.biomassCost) || (energy < organism.energyCost)}
                     onClick={() => {
                       actions.speciesEvolution(organism.name)
                     }}
                   >
-                    Reproduce for {organism.biomassCost} biomass
+                    Reproduce
                   </button>
                 </div>
               )

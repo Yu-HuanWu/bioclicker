@@ -8,6 +8,7 @@ const getInitialOrganisms = () => ({
         bps: 1,
         eps: 0,
         biomassCost: 10,
+        energyCost: 0,
         name: "Protobiont",
         require: {
             trait: "RNA",
@@ -19,6 +20,7 @@ const getInitialOrganisms = () => ({
         bps: 5,
         eps: 0,
         biomassCost: 50,
+        energyCost: 0,
         name: "Prokaryote",
         require: {
             trait: "DNA", // DNA
@@ -30,6 +32,7 @@ const getInitialOrganisms = () => ({
         bps: 5,
         eps: 2,
         biomassCost: 50,
+        energyCost: 0,
         name: "Cyanobacteria",
         require: {
             trait: "Photosynthesis",
@@ -41,6 +44,7 @@ const getInitialOrganisms = () => ({
         bps: 10,
         eps: 0,
         biomassCost: 200,
+        energyCost: 5,
         name: "Eukaryote",
         require: {
             trait: "Nucleus", //nucleus
@@ -52,6 +56,7 @@ const getInitialOrganisms = () => ({
         bps: 40,
         eps: 0,
         biomassCost: 1000,
+        energyCost: 50,
         name: "Sponge",
         require: {
             trait: "Multicelluarity",
@@ -89,6 +94,7 @@ const getInitialTraits = () => ({
     "Carbohydrate": {
         multiplier: 1,
         biomassCost: 10,
+        energyCost: 0,
         name: "Carbohydrate",
         text: "Unlock Energy",
         require: {
@@ -99,6 +105,7 @@ const getInitialTraits = () => ({
     "RNA": {
         multiplier: 1,
         biomassCost: 15,
+        energyCost: 0,
         name: "RNA",
         text: "Unlock Protobiont",
         require: {
@@ -109,6 +116,7 @@ const getInitialTraits = () => ({
     "DNA": {
         multiplier: 1,
         biomassCost: 75,
+        energyCost: 0,
         name: "DNA",
         text: "Unlock Prokaryote",
         require: {
@@ -119,6 +127,7 @@ const getInitialTraits = () => ({
     "Photosynthesis": {
         multiplier: 1,
         biomassCost: 300,
+        energyCost: 0,
         name: "Photosynthesis",
         text: "Unlock ",
         require: {
@@ -129,6 +138,7 @@ const getInitialTraits = () => ({
     "Nucleus": {
         multiplier: 1,
         biomassCost: 350,
+        energyCost: 0,
         name: "Nucleus",
         text: "Unlock Eukaryotes",
         require: {
@@ -139,6 +149,7 @@ const getInitialTraits = () => ({
     "Endosymbiosis": {
         multiplier: 1,
         biomassCost: 400,
+        energyCost: 0,
         name: "Endosymbiosis",
         text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
         require: {
@@ -149,6 +160,7 @@ const getInitialTraits = () => ({
     "Multicelluarity": {
         multiplier: 1,
         biomassCost: 1500,
+        energyCost: 50,
         name: "Multicelluarity",
         text: "Unlock Sponge",
         require: {
@@ -159,6 +171,7 @@ const getInitialTraits = () => ({
     "Differentiation": {
         multiplier: 1,
         biomassCost: 2000,
+        energyCost: 500,
         name: "Differentiation",
         text: "",
         require: {
@@ -241,6 +254,7 @@ export const useBioStore = create((set, get) => ({
                 //     break;
                 default:
                     actions.changeBiomass(-organism.biomassCost);
+                    actions.changeEnergy(-organism.energyCost);
                     set(state => ({
                         evolvedSpecies: [...state.evolvedSpecies, organism]
                     }));
@@ -251,6 +265,7 @@ export const useBioStore = create((set, get) => ({
             const trait = traits[traitName];
 
             actions.changeBiomass(-trait.biomassCost);
+            actions.changeEnergy(-trait.energyCost);
             set(state => ({
                 evolvedTraits: [...state.evolvedTraits, trait]
             }));

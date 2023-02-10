@@ -3,6 +3,7 @@ import { DisableEvolution } from "./organisms.js";
 
 export function TraitList() {
   const biomass = useBioStore(s => s.biomass);
+  const energy = useBioStore(s => s.energy);
   const traits = useBioStore(s => s.traits);
   const actions = useBioStore(s => s.actions);
   const evolvedTraits = useBioStore(s => s.evolvedTraits)
@@ -33,7 +34,7 @@ export function TraitList() {
                   <button
                     className="Mutate"
                     title={trait.text}
-                    disabled={biomass < trait.biomassCost}
+                    disabled={biomass < trait.biomassCost || energy < trait.energyCost}
                     onClick={() => actions.traitEvolution(trait.name)}
                   >
                   <div>
