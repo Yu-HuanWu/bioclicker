@@ -54,7 +54,12 @@ export function OrganismList() {
                     requires {organism.biomassCost} biomass {organism.energyCost !== 0 &&
                       `and ${organism.energyCost} energy`
                     } <br/>
-                    ({organism.bps} biomass per second) X {organismCount}
+                    ({organism.bps} biomass {organism.eps !== 0 &&
+                      `and ${organism.eps} energy`
+                    } per second)
+                  </div>
+                  <div>
+                    X {organismCount}
                   </div>
                   <button
                     className="Reproduce"

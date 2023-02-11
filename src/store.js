@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 const getInitialCounter = () => 0;
-const getInitialBiomass = () => 1000;
-const getInitialEnergy = () => 0;
+const getInitialBiomass = () => 10000;
+const getInitialEnergy = () => 1000;
 const getInitialOrganisms = () => ({
     "Protobiont": {
         bps: 1,
@@ -64,30 +64,7 @@ const getInitialOrganisms = () => ({
         },
         text: "",
     },
-    // 5: {
-    //     id: 3,
-    //     bps: 10,
-    //     eps: 0,
-    //     biomassCost: 200,
-    //     name: "Eukaryote",
-    //     require: {
-    //         trait: 3,
-    //         species: 2,
-    //     },
-    //     text: "",
-    // },
-    // 6: {
-    //     id: 3,
-    //     bps: 10,
-    //     eps: 0,
-    //     biomassCost: 200,
-    //     name: "Eukaryote",
-    //     require: {
-    //         trait: 3,
-    //         species: 2,
-    //     },
-    //     text: "",
-    // },
+    
 });
 
 const getInitialTraits = () => ({
@@ -120,7 +97,7 @@ const getInitialTraits = () => ({
         name: "DNA",
         text: "Unlock Prokaryote",
         require: {
-            trait: "RNA", // RNA
+            trait: "RNA",
             species: 0,
         },
     },
@@ -129,9 +106,20 @@ const getInitialTraits = () => ({
         biomassCost: 300,
         energyCost: 0,
         name: "Photosynthesis",
-        text: "Unlock ",
+        text: "Unlock Cyanobacteria",
         require: {
-            trait: "RNA", // RNA
+            trait: "RNA",
+            species: 0,
+        },
+    },
+    "Respiration": {
+        multiplier: 1,
+        biomassCost: 200,
+        energyCost: 300,
+        name: "Respiration",
+        text: "Gain more energy: 10% of every producer's biomass cost",
+        require: {
+            trait: "RNA",
             species: 0,
         },
     },
@@ -142,8 +130,8 @@ const getInitialTraits = () => ({
         name: "Nucleus",
         text: "Unlock Eukaryotes",
         require: {
-            trait: "DNA", // DNA
-            species: "Prokaryote", // prokaryote
+            trait: "DNA",
+            species: "Prokaryote",
         },
     },
     "Endosymbiosis": {
@@ -153,8 +141,8 @@ const getInitialTraits = () => ({
         name: "Endosymbiosis",
         text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
         require: {
-            trait: "DNA", // DNA
-            species: "Prokaryote", // prokaryote
+            trait: "DNA",
+            species: "Prokaryote",
         },
     },
     "Multicelluarity": {
@@ -188,8 +176,9 @@ function evolvedTraitsAffectOrganism(organismName, evolvedTraits) {
     })
 
     if (organismName === "Prokaryote" && allTraits.includes("Endosymbiosis")) {
-        // prokaryote and endosymbiosis
         return 1
+    } else if (["Cyanobacteria"].includes(organismName) && allTraits.includes("Respiration")) {
+        return 2
     }
     return 0
 }
@@ -239,7 +228,7 @@ export const useBioStore = create((set, get) => ({
                 case 1:
                     // endosymbiosis effect: 
                     actions.changeBiomass(-organism.biomassCost);
-                    if (diceRoll(50)) {
+                    if (diceRoll(10)) {
                         set(state => ({
                             evolvedSpecies: [...state.evolvedSpecies, organism, organisms["Eukaryote"]]
                         }));
@@ -249,7 +238,13 @@ export const useBioStore = create((set, get) => ({
                         }));
                     }
                     break;
-                // case 2:
+                case 2:
+                    set(state => ({
+                        evolvedSpecies: [...state.evolvedSpecies, organism],
+                        energy: state.energy+ Math.floor(organism.biomassCost * 0.1)
+                    }));
+                    break;
+                // case 3:
                 //     // code block
                 //     break;
                 default:
