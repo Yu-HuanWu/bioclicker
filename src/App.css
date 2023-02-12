@@ -64,6 +64,44 @@
   overflow-y: scroll;
 }
 
+.Center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Polymerization {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  /* animation: heartbeat 2s linear infinite */
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.Polymerization img {
+  animation: heartbeat 5s linear infinite
+}
+
+.Polymerization:active {
+  transform: translateY(4px);
+}
+
 .ColumnTitle {
   font: 1em "Press start 2P";
   color: azure;
