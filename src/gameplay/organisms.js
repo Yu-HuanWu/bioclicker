@@ -33,6 +33,7 @@ export function OrganismList() {
     })
     return count
   }
+
   return (
     <div>
       <div className="ColumnTitle">Species</div>
@@ -59,7 +60,7 @@ export function OrganismList() {
                     } per second)
                   </div>
                   <div>
-                    X {organismCount}
+                    <strong>X {organismCount}</strong>
                   </div>
                   <button
                     className="Reproduce"

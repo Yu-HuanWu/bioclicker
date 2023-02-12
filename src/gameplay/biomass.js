@@ -13,7 +13,8 @@ export function Biomass() {
 export function Polymerization() {
     const actions = useBioStore(s => s.actions);
     return (
-        <button onClick={() => actions.changeBiomass(1)}>
+        <button className="Polymerization" onClick={() => actions.changeBiomass(1)}>
+            <img src="bioclicker/graphics/organic.png" alt="organic molecule" width="100" height="100"/>
             Polymerization
         </button>
     );
