@@ -72,14 +72,22 @@
 }
 
 .Polymerization {
+  font: 0.8em "Press start 2P";
+  color: azure;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
+  justify-content: center;
+}
+
+.PolymerizationButton {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
   cursor: pointer;
   border: none;
   background-color: transparent;
-  /* animation: heartbeat 2s linear infinite */
 }
 
 @keyframes heartbeat {
@@ -94,11 +102,11 @@
   }
 }
 
-.Polymerization img {
+.PolymerizationButton img {
   animation: heartbeat 5s linear infinite
 }
 
-.Polymerization:active {
+.PolymerizationButton:active {
   transform: translateY(4px);
 }
 

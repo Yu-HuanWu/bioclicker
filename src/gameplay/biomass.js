@@ -18,11 +18,12 @@ export function Polymerization() {
 
     }
     return (
-        <div>
-            <button className="Polymerization" onClick={() => actions.changeBiomass(biomassPerClick)}>
+        <div className = "Polymerization">
+            <button className="PolymerizationButton" onClick={() => actions.changeBiomass(biomassPerClick)}>
                 <img src="bioclicker/graphics/organic.png" alt="organic molecule" width="100" height="100"/>
             </button>
-            Polymerization
+            Polymerization <br/>
+            + {biomassPerClick} per click
         </div>
     );
 }
