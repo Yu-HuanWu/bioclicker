@@ -12,11 +12,18 @@ export function Biomass() {
 
 export function Polymerization() {
     const actions = useBioStore(s => s.actions);
+    const evolvedTraits = useBioStore(s => s.evolvedTraits)
+    let biomassPerClick = 1;
+    if (Object.keys(evolvedTraits).includes()) {
+
+    }
     return (
-        <button className="Polymerization" onClick={() => actions.changeBiomass(1)}>
-            <img src="bioclicker/graphics/organic.png" alt="organic molecule" width="100" height="100"/>
+        <div>
+            <button className="Polymerization" onClick={() => actions.changeBiomass(biomassPerClick)}>
+                <img src="bioclicker/graphics/organic.png" alt="organic molecule" width="100" height="100"/>
+            </button>
             Polymerization
-        </button>
+        </div>
     );
 }
 
