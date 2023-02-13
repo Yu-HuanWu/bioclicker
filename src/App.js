@@ -4,6 +4,7 @@ import { AutoIncrementByOrganisms } from './gameplay/autoincrement.js'
 import { OrganismList } from './gameplay/organisms.js'
 import { TraitList } from './gameplay/traits.js'
 import { Biomass, Polymerization, Energy } from './gameplay/biomass.js'
+import { Events } from './gameplay/events.js'
 
 function App() {
   const evolvedTraits = useBioStore(s => s.evolvedTraits)
@@ -20,11 +21,16 @@ function App() {
           <OrganismList/>
         </div>
         <div className="Center">
+          <div className="CenterEvents">
+            <Events/>
+          </div>
           <Biomass/>
           <Polymerization/>
-          {carbohydrateEvolved &&
-            <Energy/>
-          }
+          <div className="CenterEnergy">
+            {carbohydrateEvolved &&
+              <Energy/>
+            }
+          </div>
         </div>
         <div className="Right">
           <TraitList/>

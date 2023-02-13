@@ -67,8 +67,17 @@
 .Center {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  height: 86vh;
+}
+
+.CenterEvents {
+  height: 30%;
+}
+
+.CenterEnergy {
+  height: 30%;
 }
 
 .Polymerization {
