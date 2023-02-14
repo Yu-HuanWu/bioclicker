@@ -24,13 +24,19 @@ export function TraitList() {
             } else {
               return (
                 allTraits.includes(trait.name) ?
-                <li key={i} className="TraitEvolved">
+                <li key={i} 
+                    onMouseEnter={() => { actions.changeTraitDescription(true, trait.name) }}
+                    onMouseLeave={() => { actions.changeTraitDescription(false, 0) }}
+                  className="TraitEvolved">
                   <div title={trait.text} className="Mutate">
                     {trait.name}
                   </div>
                 </li>
                 :
-                <li key={i} className="TraitUnevolved">
+                <li key={i} 
+                  onMouseEnter={() => { actions.changeTraitDescription(true, trait.name) }}
+                  onMouseLeave={() => { actions.changeTraitDescription(false, 0) }}
+                  className="TraitUnevolved">
                   <button
                     className="Mutate"
                     title={trait.text}

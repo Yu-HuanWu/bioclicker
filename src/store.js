@@ -193,6 +193,7 @@ export const useBioStore = create((set, get) => ({
     energy: getInitialEnergy(),
     organisms: getInitialOrganisms(),
     traits: getInitialTraits(),
+    traitDescription: {"hover": false, "trait": 0},
     evolvedSpecies: [],
     evolvedTraits: [],
     actions: {
@@ -218,6 +219,9 @@ export const useBioStore = create((set, get) => ({
         },
         changeEnergy(amount = 1) {
             set(state => ({ energy: state.energy + amount }));
+        },
+        changeTraitDescription(bool, traitName) {
+            set(() => ({ traitDescription: { "hover": bool, "trait": traitName }}))
         },
         speciesEvolution(organismName) {
             const { organisms, actions, evolvedTraits } = get();

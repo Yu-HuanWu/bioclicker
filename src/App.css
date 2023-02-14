@@ -148,6 +148,13 @@
   padding-bottom: 15%;
 }
 
+.TraitDescription {
+  font: 1em "Press start 2P";
+  color: azure;
+  width: 30vw;
+  /* overflow-wrap: anywhere; */
+}
+
 .TraitsList {
   padding: 0px;
   display: grid;
