@@ -187,4 +187,5 @@
   height: 0;
   padding-top: 20%;
   padding-bottom: 80%;
+  overflow-wrap: break-word;
 }
