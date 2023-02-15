@@ -169,6 +169,15 @@ const getInitialTraits = () => ({
     }
 });
 
+const allEvents = {
+    0: {
+        text: "a lot of rain"
+    },
+    1: {
+        text: "a lot of sun"
+    }
+}
+
 function evolvedTraitsAffectOrganism(organismName, evolvedTraits) {
     const allTraits = []
     evolvedTraits.forEach(trait => {
@@ -189,6 +198,7 @@ function diceRoll(percentage) {
 
 export const useBioStore = create((set, get) => ({
     counter: getInitialCounter(),
+    event: {},
     biomass: getInitialBiomass(),
     energy: getInitialEnergy(),
     organisms: getInitialOrganisms(),
@@ -200,8 +210,9 @@ export const useBioStore = create((set, get) => ({
         increaseCounter() {
             const { counter } = get();
             // console.log(counter)
-            if (counter >= 120) {
-                set({ counter: 0 })
+            if (counter >= 10) {
+                const currEvent = allEvents[Math.floor(Math.random() * 2)]
+                set({ counter: 0, event: currEvent })
             } else {
                 set(state => ({counter: state.counter + 1}))
             }
