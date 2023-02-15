@@ -39,14 +39,10 @@ export function TraitList() {
                   className="TraitUnevolved">
                   <button
                     className="Mutate"
-                    title={trait.text}
                     disabled={biomass < trait.biomassCost || energy < trait.energyCost}
                     onClick={() => actions.traitEvolution(trait.name)}
                   >
-                  <div>
-                    {trait.name}: {trait.biomassCost} biomass
-                  </div>
-                    Mutate
+                    {trait.name}
                   </button>
                 </li>
               )
