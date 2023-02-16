@@ -6,11 +6,14 @@ export function Events() {
   let currTrait = traits[traitDescription.trait]
 
   const event = useBioStore(s => s.event)
+  const actions = useBioStore(s => s.actions)
 
   return (
     <div>
       {traitDescription.hover ? 
-        <div className="TraitDescription"> 
+        <div 
+          onMouseEnter={() => { actions.changeTraitDescription(false, 0) }}
+          className="TraitDescription"> 
           {traitDescription.trait} <br/>
           {currTrait.text} <br/>
           requires: {currTrait.biomassCost} biomass 
@@ -19,7 +22,7 @@ export function Events() {
           }
         </div>
         :
-        <div>
+        <div onMouseEnter={() => { actions.changeTraitDescription(false, 0) }}>
           <div className="ColumnTitle">Current Event:</div>
           <div className="ColumnTitle">{event.text}</div>
         </div>

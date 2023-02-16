@@ -37,12 +37,18 @@ export function AutoIncrement({tbps, teps}) {
 }
 
 export function AutoIncrementByOrganisms() {
+    const evolvedTraits = useBioStore(s => s.evolvedTraits)
+    const carbohydrateEvolved = evolvedTraits.filter(trait => {
+        return trait.name === "Carbohydrate";
+    }).length > 0;
     const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
     let totalBiomassPerSecond = 0;
     let totalEnergyPerSecond = 0;
     evolvedSpecies.forEach(organism => {
         totalBiomassPerSecond += organism.bps;
-        totalEnergyPerSecond += organism.eps;
+        if (carbohydrateEvolved) {
+            totalEnergyPerSecond += organism.eps;
+        }
     })
     return (
         <AutoIncrement tbps={totalBiomassPerSecond} teps={totalEnergyPerSecond} />

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const getInitialCounter = () => 0;
-const getInitialBiomass = () => 0;
+const getInitialBiomass = () => 10000;
 const getInitialEnergy = () => 0;
 const getInitialOrganisms = () => ({
     "Protobiont": {
