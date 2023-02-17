@@ -79,6 +79,17 @@ const getInitialTraits = () => ({
             species: 0,
         },
     },
+    "Protein": {
+        multiplier: 2,
+        biomassCost: 20,
+        energyCost: 0,
+        name: "Protein",
+        text: "Polymerize twice as much!",
+        require: {
+            trait: 0,
+            species: 0,
+        },
+    },
     "RNA": {
         multiplier: 1,
         biomassCost: 15,
