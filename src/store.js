@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const getInitialCounter = () => 0;
-const getInitialBiomass = () => 10000;
+const getInitialBiomass = () => 0;
 const getInitialEnergy = () => 0;
 const getInitialOrganisms = () => ({
     "Protobiont": {
@@ -23,7 +23,7 @@ const getInitialOrganisms = () => ({
         energyCost: 0,
         name: "Prokaryote",
         require: {
-            trait: "DNA", // DNA
+            trait: "DNA",
             species: "Protobiont",
         },
         text: "no nucleus, no problem",
@@ -182,10 +182,12 @@ const getInitialTraits = () => ({
 
 const allEvents = {
     0: {
-        text: "a lot of rain"
+        text: "a lot of rain",
+        imagePath: "",
     },
     1: {
-        text: "a lot of sun"
+        text: "a lot of sun",
+        imagePath: "",
     }
 }
 
