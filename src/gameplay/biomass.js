@@ -17,6 +17,8 @@ export function Polymerization() {
     evolvedTraits.forEach(trait => {
         biomassPerClick *= trait.multiplier;
     })
+    const event = useBioStore(s => s.event)
+    
     return (
         <div className = "Polymerization">
             <button className="PolymerizationButton" onClick={() => actions.changeBiomass(biomassPerClick)}>
