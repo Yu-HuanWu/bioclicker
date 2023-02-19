@@ -113,11 +113,11 @@ const getInitialTraits = () => ({
         },
     },
     "Photosynthesis": {
-        multiplier: 1,
+        multiplier: 2,
         biomassCost: 300,
         energyCost: 0,
         name: "Photosynthesis",
-        text: "Unlock Cyanobacteria",
+        text: "Unlock Cyanobacteria. Polymerize twice as much!",
         require: {
             trait: "RNA",
             species: 0,
@@ -128,7 +128,7 @@ const getInitialTraits = () => ({
         biomassCost: 200,
         energyCost: 300,
         name: "Respiration",
-        text: "Gain more energy: 10% of every producer's biomass cost",
+        text: "Gain more energy: 10% of every producer's biomass cost for each purchase.",
         require: {
             trait: "RNA",
             species: 0,
@@ -163,8 +163,8 @@ const getInitialTraits = () => ({
         name: "Multicelluarity",
         text: "Unlock Sponge",
         require: {
-            trait: "Nucleus", // nucleus
-            species: "Eukaryote", // eukaryote
+            trait: "Nucleus",
+            species: "Eukaryote",
         },
     },
     "Differentiation": {
@@ -174,7 +174,7 @@ const getInitialTraits = () => ({
         name: "Differentiation",
         text: "",
         require: {
-            trait: "Multicelluarity", // multicellularity
+            trait: "Multicelluarity",
             species: "Sponge",
         },
     }
