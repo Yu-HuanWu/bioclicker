@@ -183,10 +183,12 @@ const getInitialTraits = () => ({
 const allEvents = {
     0: {
         text: "a lot of rain",
+        description: "",
         imagePath: "",
     },
     1: {
         text: "a lot of sun",
+        description: "",
         imagePath: "",
     }
 }
