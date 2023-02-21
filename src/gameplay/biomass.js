@@ -13,12 +13,14 @@ export function Biomass() {
 export function Polymerization() {
     const actions = useBioStore(s => s.actions);
     const evolvedTraits = useBioStore(s => s.evolvedTraits)
+    const event = useBioStore(s => s.event)
     let biomassPerClick = 1;
     evolvedTraits.forEach(trait => {
         biomassPerClick *= trait.multiplier;
     })
-    const event = useBioStore(s => s.event)
-    
+    if (event.name === "Cosmic Radiation") {
+        biomassPerClick *= 2;
+    }
     return (
         <div className = "Polymerization">
             <button className="PolymerizationButton" onClick={() => actions.changeBiomass(biomassPerClick)}>

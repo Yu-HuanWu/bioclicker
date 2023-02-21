@@ -22,9 +22,10 @@ export function Events() {
           }
         </div>
         :
-        <div onMouseEnter={() => { actions.changeTraitDescription(false, 0) }}>
-          <div className="ColumnTitle">Current Event:</div>
-          <div className="ColumnTitle">{event.text}</div>
+        <div onMouseEnter={() => { actions.changeTraitDescription(false, 0) }}
+          className="TraitDescription">
+          <div>Current Event:</div>
+          <div>{event.text}</div>
         </div>
       }
     </div>

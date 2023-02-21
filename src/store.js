@@ -182,13 +182,13 @@ const getInitialTraits = () => ({
 
 const allEvents = {
     0: {
-        text: "a lot of rain",
-        description: "",
+        name: "Cosmic Radiation",
+        text: "a burst of cosmic radiation detected!",
         imagePath: "",
     },
     1: {
+        name: "",
         text: "a lot of sun",
-        description: "",
         imagePath: "",
     }
 }
