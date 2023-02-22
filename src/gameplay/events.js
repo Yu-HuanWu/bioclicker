@@ -26,6 +26,7 @@ export function Events() {
           className="TraitDescription">
           <div>Current Event:</div>
           <div>{event.text}</div>
+          <div>{event.description}</div>
         </div>
       }
     </div>

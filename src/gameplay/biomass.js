@@ -26,7 +26,7 @@ export function Polymerization() {
             <button className="PolymerizationButton" onClick={() => actions.changeBiomass(biomassPerClick)}>
                 {/* local have to use path bioclicker/graphics in order to work
                 on prod remove the bioclicker */}
-                <img src="bioclicker/graphics/organic.png" alt="organic molecule" width="100" height="100"/>
+                <img src="graphics/organic.png" alt="organic molecule" width="100" height="100"/>
             </button>
             Polymerization <br/>
             + {biomassPerClick} per click

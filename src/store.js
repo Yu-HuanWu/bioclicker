@@ -184,11 +184,13 @@ const allEvents = {
     0: {
         name: "Cosmic Radiation",
         text: "a burst of cosmic radiation detected!",
+        description: "Polymerize twice as much!",
         imagePath: "",
     },
     1: {
         name: "",
         text: "a lot of sun",
+        description: "",
         imagePath: "",
     }
 }
