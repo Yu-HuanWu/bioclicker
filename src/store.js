@@ -188,9 +188,9 @@ const allEvents = {
         imagePath: "",
     },
     1: {
-        name: "",
-        text: "a lot of sun",
-        description: "",
+        name: "Ice Age",
+        text: "thick smokes and ashes cover the sun.",
+        description: "All organisms ceased biomass and energy production.",
         imagePath: "",
     }
 }

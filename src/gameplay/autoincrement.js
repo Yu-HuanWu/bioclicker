@@ -37,6 +37,7 @@ export function AutoIncrement({tbps, teps}) {
 }
 
 export function AutoIncrementByOrganisms() {
+    const event = useBioStore(s => s.event)
     const evolvedTraits = useBioStore(s => s.evolvedTraits)
     const carbohydrateEvolved = evolvedTraits.filter(trait => {
         return trait.name === "Carbohydrate";
@@ -50,6 +51,10 @@ export function AutoIncrementByOrganisms() {
             totalEnergyPerSecond += organism.eps;
         }
     })
+    if (event.name === "Ice Age") {
+        totalBiomassPerSecond = 0;
+        totalEnergyPerSecond = 0;
+    }
     return (
         <AutoIncrement tbps={totalBiomassPerSecond} teps={totalEnergyPerSecond} />
     );
