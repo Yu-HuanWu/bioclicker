@@ -192,7 +192,13 @@ const allEvents = {
         text: "thick smokes and ashes cover the sun.",
         description: "All organisms ceased biomass and energy production.",
         imagePath: "",
-    }
+    },
+    2: {
+        name: "Sunny",
+        text: "clear sky allowing reliable sunshine through.",
+        description: "All producers double their biomass and energy production.",
+        imagePath: "",
+    },
 }
 
 function evolvedTraitsAffectOrganism(organismName, evolvedTraits) {
