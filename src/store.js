@@ -234,7 +234,7 @@ export const useBioStore = create((set, get) => ({
             const { counter } = get();
             // console.log(counter)
             if (counter >= 10) {
-                const currEvent = allEvents[Math.floor(Math.random() * 2)]
+                const currEvent = allEvents[Math.floor(Math.random() * 3)]
                 set({ counter: 0, event: currEvent })
             } else {
                 set(state => ({counter: state.counter + 1}))

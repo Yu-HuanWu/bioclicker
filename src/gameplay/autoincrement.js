@@ -50,11 +50,15 @@ export function AutoIncrementByOrganisms() {
         if (carbohydrateEvolved) {
             totalEnergyPerSecond += organism.eps;
         }
+        
+        if (event.name === "Ice Age") {
+            totalBiomassPerSecond = 0;
+            totalEnergyPerSecond = 0;
+        } else if (event.name === "Sunny") {
+            totalBiomassPerSecond += (organism.bps *2);
+            totalEnergyPerSecond += (organism.eps *2);
+        }
     })
-    if (event.name === "Ice Age") {
-        totalBiomassPerSecond = 0;
-        totalEnergyPerSecond = 0;
-    }
     return (
         <AutoIncrement tbps={totalBiomassPerSecond} teps={totalEnergyPerSecond} />
     );
