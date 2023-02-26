@@ -50,6 +50,7 @@ export function OrganismList() {
                 <div key={i}
                 title={organism.text}
                 className="Organism">
+                  <img src={organism.imagePath} alt={organism.name} width="100" height="100" />
                   <div>
                     {organism.name} <br/>
                     requires {organism.biomassCost} biomass {organism.energyCost !== 0 &&

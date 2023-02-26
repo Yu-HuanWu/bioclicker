@@ -15,6 +15,7 @@ const getInitialOrganisms = () => ({
             species: 0,
         },
         text: "sac of fat with gene",
+        imagePath: "bioclicker/graphics/testtile.jpeg",
     },
     "Prokaryote": {
         bps: 5,
@@ -27,6 +28,7 @@ const getInitialOrganisms = () => ({
             species: "Protobiont",
         },
         text: "no nucleus, no problem",
+        imagePath: "",
     },
     "Cyanobacteria": {
         bps: 5,
@@ -39,6 +41,7 @@ const getInitialOrganisms = () => ({
             species: "Prokaryote",
         },
         text: "more (sun) power to you",
+        imagePath: "",
     },
     "Eukaryote": {
         bps: 10,
@@ -51,6 +54,7 @@ const getInitialOrganisms = () => ({
             species: "Prokaryote",
         },
         text: "",
+        imagePath: "",
     },
     "Sponge": {
         bps: 40,
@@ -63,6 +67,7 @@ const getInitialOrganisms = () => ({
             species: "Eukaryote",
         },
         text: "",
+        imagePath: "",
     },
     
 });
