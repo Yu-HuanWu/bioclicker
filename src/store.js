@@ -204,6 +204,12 @@ const allEvents = {
         description: "All producers double their biomass and energy production.",
         imagePath: "",
     },
+    3: {
+        name: "Sunny",
+        text: "clear sky allowing reliable sunshine through.",
+        description: "All producers double their biomass and energy production.",
+        imagePath: "",
+    },
 }
 
 function evolvedTraitsAffectOrganism(organismName, evolvedTraits) {
