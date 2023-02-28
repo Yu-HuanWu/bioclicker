@@ -3,6 +3,11 @@ import { create } from 'zustand';
 const getInitialCounter = () => 0;
 const getInitialBiomass = () => 0;
 const getInitialEnergy = () => 0;
+const Role = {
+    Producer: 1,
+    Consumer: 2,
+    Decomposer: 3,
+}
 const getInitialOrganisms = () => ({
     "Protobiont": {
         bps: 1,
@@ -14,6 +19,7 @@ const getInitialOrganisms = () => ({
             trait: "RNA",
             species: 0,
         },
+        role: Role.Consumer,
         text: "sac of fat with gene",
         imagePath: "bioclicker/graphics/testtile.jpeg",
     },
@@ -27,6 +33,7 @@ const getInitialOrganisms = () => ({
             trait: "DNA",
             species: "Protobiont",
         },
+        role: Role.Consumer,
         text: "no nucleus, no problem",
         imagePath: "",
     },
@@ -40,6 +47,7 @@ const getInitialOrganisms = () => ({
             trait: "Photosynthesis",
             species: "Prokaryote",
         },
+        role: Role.Producer,
         text: "more (sun) power to you",
         imagePath: "",
     },
@@ -53,6 +61,7 @@ const getInitialOrganisms = () => ({
             trait: "Nucleus", //nucleus
             species: "Prokaryote",
         },
+        role: Role.Consumer,
         text: "",
         imagePath: "",
     },
@@ -66,6 +75,7 @@ const getInitialOrganisms = () => ({
             trait: "Multicelluarity",
             species: "Eukaryote",
         },
+        role: Role.Consumer,
         text: "",
         imagePath: "",
     },

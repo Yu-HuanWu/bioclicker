@@ -54,7 +54,7 @@ export function AutoIncrementByOrganisms() {
         if (event.name === "Ice Age") {
             totalBiomassPerSecond = 0;
             totalEnergyPerSecond = 0;
-        } else if (event.name === "Sunny" && ["Cyanobacteria"].includes(organism.name)) {
+        } else if (event.name === "Sunny" && organism.role === 1) {
             totalBiomassPerSecond += (organism.bps *2);
             totalEnergyPerSecond += (organism.eps *2);
         }
