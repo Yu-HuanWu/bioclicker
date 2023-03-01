@@ -46,17 +46,20 @@ export function AutoIncrementByOrganisms() {
     let totalBiomassPerSecond = 0;
     let totalEnergyPerSecond = 0;
     evolvedSpecies.forEach(organism => {
-        totalBiomassPerSecond += organism.bps;
-        if (carbohydrateEvolved) {
-            totalEnergyPerSecond += organism.eps;
-        }
 
         if (event.name === "Ice Age") {
             totalBiomassPerSecond = 0;
             totalEnergyPerSecond = 0;
         } else if (event.name === "Sunny" && organism.role === 1) {
             totalBiomassPerSecond += (organism.bps *2);
-            totalEnergyPerSecond += (organism.eps *2);
+            if (carbohydrateEvolved) {
+                totalEnergyPerSecond += (organism.eps *2);
+            }
+        } else {
+            totalBiomassPerSecond += organism.bps;
+            if (carbohydrateEvolved) {
+                totalEnergyPerSecond += organism.eps;
+            }
         }
     })
     return (
