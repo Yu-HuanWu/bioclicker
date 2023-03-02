@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const getInitialCounter = () => 0;
-const getInitialBiomass = () => 0;
+const getInitialBiomass = () => 10000;
 const getInitialEnergy = () => 0;
 const Role = {
     Producer: 1,
@@ -222,15 +222,15 @@ const allEvents = {
     },
 }
 
-function evolvedTraitsAffectOrganism(organismName, evolvedTraits) {
+function evolvedTraitsAffectOrganism(organism, evolvedTraits) {
     const allTraits = []
     evolvedTraits.forEach(trait => {
         allTraits.push(trait.name)
     })
 
-    if (organismName === "Prokaryote" && allTraits.includes("Endosymbiosis")) {
+    if (organism.name === "Prokaryote" && allTraits.includes("Endosymbiosis")) {
         return 1
-    } else if (["Cyanobacteria"].includes(organismName) && allTraits.includes("Respiration")) {
+    } else if (organism.role === Role.Producer && allTraits.includes("Respiration")) {
         return 2
     }
     return 0
@@ -281,7 +281,7 @@ export const useBioStore = create((set, get) => ({
         speciesEvolution(organismName) {
             const { organisms, actions, evolvedTraits } = get();
             const organism = organisms[organismName];
-            const evolvedTraitsAffectingOrganism = evolvedTraitsAffectOrganism(organismName, evolvedTraits)
+            const evolvedTraitsAffectingOrganism = evolvedTraitsAffectOrganism(organism, evolvedTraits)
 
             switch (evolvedTraitsAffectingOrganism) {
                 case 1:
