@@ -58,10 +58,24 @@ const getInitialOrganisms = () => ({
         energyCost: 5,
         name: "Eukaryote",
         require: {
-            trait: "Nucleus", //nucleus
+            trait: "Nucleus",
             species: "Prokaryote",
         },
         role: Role.Consumer,
+        text: "",
+        imagePath: "",
+    },
+    "Algae": {
+        bps: 10,
+        eps: 10,
+        biomassCost: 1000,
+        energyCost: 50,
+        name: "Algae",
+        require: {
+            trait: "Photosynthesis",
+            species: "Eukaryote",
+        },
+        role: Role.Producer,
         text: "",
         imagePath: "",
     },
@@ -79,7 +93,7 @@ const getInitialOrganisms = () => ({
         text: "",
         imagePath: "",
     },
-    
+
 });
 
 const getInitialTraits = () => ({
