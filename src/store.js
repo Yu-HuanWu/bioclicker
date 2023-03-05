@@ -93,7 +93,20 @@ const getInitialOrganisms = () => ({
         text: "",
         imagePath: "",
     },
-
+    "Jellyfish": {
+        bps: 90,
+        eps: 0,
+        biomassCost: 2000,
+        energyCost: 100,
+        name: "Jellyfish",
+        require: {
+            trait: "Differentiation",
+            species: "Sponge",
+        },
+        role: Role.Consumer,
+        text: "",
+        imagePath: "",
+    },
 });
 
 const getInitialTraits = () => ({
