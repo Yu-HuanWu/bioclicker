@@ -107,6 +107,20 @@ const getInitialOrganisms = () => ({
         text: "",
         imagePath: "",
     },
+    "Seaweed": {
+        bps: 30,
+        eps: 30,
+        biomassCost: 2000,
+        energyCost: 100,
+        name: "Seaweed",
+        require: {
+            trait: "Differentiation",
+            species: "Algae",
+        },
+        role: Role.Producer,
+        text: "",
+        imagePath: "",
+    },
 });
 
 const getInitialTraits = () => ({
