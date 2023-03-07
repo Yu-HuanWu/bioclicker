@@ -118,7 +118,7 @@ const getInitialOrganisms = () => ({
             species: "Algae",
         },
         role: Role.Producer,
-        text: "",
+        text: "totally legal",
         imagePath: "",
     },
 });
