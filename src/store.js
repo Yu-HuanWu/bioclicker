@@ -90,7 +90,7 @@ const getInitialOrganisms = () => ({
             species: "Eukaryote",
         },
         role: Role.Consumer,
-        text: "",
+        text: "are ya ready kids?",
         imagePath: "",
     },
     "Jellyfish": {
