@@ -228,7 +228,7 @@ const getInitialTraits = () => ({
         biomassCost: 2000,
         energyCost: 500,
         name: "Differentiation",
-        text: "",
+        text: "Unlock Jellyfish and Seaweed",
         require: {
             trait: "Multicelluarity",
             species: "Sponge",
@@ -242,7 +242,7 @@ const getInitialTraits = () => ({
         text: "",
         require: {
             trait: "Multicelluarity",
-            species: "Sponge",
+            species: "Jellyfish",
         },
     }
 });
