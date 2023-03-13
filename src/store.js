@@ -76,7 +76,7 @@ const getInitialOrganisms = () => ({
             species: "Eukaryote",
         },
         role: Role.Producer,
-        text: "what's producers' favorite math? Algae-bra",
+        text: "what's a producer's favorite math? Algae-bra",
         imagePath: "",
     },
     "Sponge": {
