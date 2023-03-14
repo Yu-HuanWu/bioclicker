@@ -234,6 +234,28 @@ const getInitialTraits = () => ({
             species: "Sponge",
         },
     },
+    "Protostome": {
+        multiplier: 2,
+        biomassCost: 3500,
+        energyCost: 1000,
+        name: "Protostome",
+        text: "",
+        require: {
+            trait: "Multicelluarity",
+            species: "Jellyfish",
+        },
+    },
+    "Deuterostome": {
+        multiplier: 2,
+        biomassCost: 3500,
+        energyCost: 1000,
+        name: "Deuterostome",
+        text: "",
+        require: {
+            trait: "Multicelluarity",
+            species: "Jellyfish",
+        },
+    },
     "Vertebrate": {
         multiplier: 1,
         biomassCost: 2000,
