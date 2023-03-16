@@ -263,7 +263,7 @@ const getInitialTraits = () => ({
         name: "Vertebrate",
         text: "",
         require: {
-            trait: "Multicelluarity",
+            trait: "Deuterostome",
             species: "Jellyfish",
         },
     }
