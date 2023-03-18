@@ -168,6 +168,17 @@ const getInitialTraits = () => ({
             species: 0,
         },
     },
+    "Binary Fission": {
+        multiplier: 1,
+        biomassCost: 275,
+        energyCost: 0,
+        name: "Binary Fission",
+        text: "Unlock Prokaryote",
+        require: {
+            trait: "DNA",
+            species: "Prokaryote",
+        },
+    },
     "Photosynthesis": {
         multiplier: 2,
         biomassCost: 300,
