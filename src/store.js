@@ -169,11 +169,11 @@ const getInitialTraits = () => ({
         },
     },
     "Binary Fission": {
-        multiplier: 1,
+        multiplier: 2,
         biomassCost: 275,
         energyCost: 0,
         name: "Binary Fission",
-        text: "Unlock Prokaryote",
+        text: "10% chance of getting double Prokaryote per reproduction",
         require: {
             trait: "DNA",
             species: "Prokaryote",
