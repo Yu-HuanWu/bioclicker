@@ -317,6 +317,8 @@ function evolvedTraitsAffectOrganism(organism, evolvedTraits) {
         return 1
     } else if (organism.role === Role.Producer && allTraits.includes("Respiration")) {
         return 2
+    } else if (organism.name === "Prokaryote" && allTraits.includes("Binary Fission")) {
+        return 3
     }
     return 0
 }
@@ -383,10 +385,24 @@ export const useBioStore = create((set, get) => ({
                     }
                     break;
                 case 2:
+                    // Respiration
+                    actions.changeBiomass(-organism.biomassCost);
                     set(state => ({
                         evolvedSpecies: [...state.evolvedSpecies, organism],
                         energy: state.energy+ Math.floor(organism.biomassCost * 0.1)
                     }));
+                    break;
+                case 3:
+                    actions.changeBiomass(-organism.biomassCost);
+                    if (diceRoll(10)) {
+                        set(state => ({
+                            evolvedSpecies: [...state.evolvedSpecies, organism, organism]
+                        }));
+                    } else {
+                        set(state => ({
+                            evolvedSpecies: [...state.evolvedSpecies, organism]
+                        }));
+                    }
                     break;
                 // case 3:
                 //     // code block
