@@ -393,6 +393,7 @@ export const useBioStore = create((set, get) => ({
                     }));
                     break;
                 case 3:
+                    // Binary Fission
                     actions.changeBiomass(-organism.biomassCost);
                     if (diceRoll(10)) {
                         set(state => ({
@@ -404,7 +405,7 @@ export const useBioStore = create((set, get) => ({
                         }));
                     }
                     break;
-                // case 3:
+                // case 4:
                 //     // code block
                 //     break;
                 default:
