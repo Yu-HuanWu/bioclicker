@@ -223,6 +223,17 @@ const getInitialTraits = () => ({
             species: "Prokaryote",
         },
     },
+    "Mitosis": {
+        multiplier: 2,
+        biomassCost: 275,
+        energyCost: 0,
+        name: "Mitosis",
+        text: "10% chance of getting double Eukaryotes per reproduction. Double your polymerization.",
+        require: {
+            trait: "DNA",
+            species: "Eukaryote",
+        },
+    },
     "Multicelluarity": {
         multiplier: 1,
         biomassCost: 1500,
