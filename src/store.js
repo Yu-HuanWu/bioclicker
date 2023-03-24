@@ -225,7 +225,7 @@ const getInitialTraits = () => ({
     },
     "Mitosis": {
         multiplier: 2,
-        biomassCost: 275,
+        biomassCost: 675,
         energyCost: 0,
         name: "Mitosis",
         text: "10% chance of getting double Eukaryotes per reproduction. Double your polymerization.",
