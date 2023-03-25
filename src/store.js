@@ -330,6 +330,8 @@ function evolvedTraitsAffectOrganism(organism, evolvedTraits) {
         return 2
     } else if (organism.name === "Prokaryote" && allTraits.includes("Binary Fission")) {
         return 3
+    } else if (organism.name === "Eukaryote" && allTraits.includes("Mitosis")) {
+        return 4
     }
     return 0
 }
@@ -405,6 +407,19 @@ export const useBioStore = create((set, get) => ({
                     break;
                 case 3:
                     // Binary Fission
+                    actions.changeBiomass(-organism.biomassCost);
+                    if (diceRoll(10)) {
+                        set(state => ({
+                            evolvedSpecies: [...state.evolvedSpecies, organism, organism]
+                        }));
+                    } else {
+                        set(state => ({
+                            evolvedSpecies: [...state.evolvedSpecies, organism]
+                        }));
+                    }
+                    break;
+                case 4:
+                    // Mitosis
                     actions.changeBiomass(-organism.biomassCost);
                     if (diceRoll(10)) {
                         set(state => ({
