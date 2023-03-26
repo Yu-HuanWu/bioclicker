@@ -230,7 +230,7 @@ const getInitialTraits = () => ({
         name: "Mitosis",
         text: "10% chance of getting double Eukaryotes per reproduction. Double your polymerization.",
         require: {
-            trait: "DNA",
+            trait: "Nucleus",
             species: "Eukaryote",
         },
     },
