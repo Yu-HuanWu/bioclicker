@@ -234,6 +234,17 @@ const getInitialTraits = () => ({
             species: "Eukaryote",
         },
     },
+    "Meiosis": {
+        multiplier: 2,
+        biomassCost: 675,
+        energyCost: 0,
+        name: "Mitosis",
+        text: "10% chance of getting double Eukaryotes per reproduction. Double your polymerization.",
+        require: {
+            trait: "Nucleus",
+            species: "Eukaryote",
+        },
+    },
     "Multicelluarity": {
         multiplier: 1,
         biomassCost: 1500,
@@ -241,7 +252,7 @@ const getInitialTraits = () => ({
         name: "Multicelluarity",
         text: "Unlock Sponge",
         require: {
-            trait: "Nucleus",
+            trait: "Mitosis",
             species: "Eukaryote",
         },
     },
