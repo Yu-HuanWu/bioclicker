@@ -228,7 +228,7 @@ const getInitialTraits = () => ({
         biomassCost: 675,
         energyCost: 0,
         name: "Mitosis",
-        text: "10% chance of getting double Eukaryotes per reproduction. Double your polymerization.",
+        text: "10% chance of getting double Eukaryotes per asexual reproduction. Double your polymerization.",
         require: {
             trait: "Nucleus",
             species: "Eukaryote",
@@ -239,7 +239,7 @@ const getInitialTraits = () => ({
         biomassCost: 675,
         energyCost: 0,
         name: "Meiosis",
-        text: "10% chance of getting double Eukaryotes per reproduction. Double your polymerization.",
+        text: "10% chance of getting double Eukaryotes per sexual reproduction. Double your polymerization.",
         require: {
             trait: "Nucleus",
             species: "Eukaryote",
