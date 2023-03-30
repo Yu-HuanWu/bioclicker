@@ -242,7 +242,7 @@ const getInitialTraits = () => ({
         text: "10% chance of getting double Eukaryotes per sexual reproduction. Double your polymerization.",
         require: {
             trait: "Nucleus",
-            species: "Eukaryote",
+            species: "Seaweed",
         },
     },
     "Multicelluarity": {
