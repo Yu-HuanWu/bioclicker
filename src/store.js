@@ -65,6 +65,20 @@ const getInitialOrganisms = () => ({
         text: "mo nucleus, mo problem",
         imagePath: "",
     },
+    "Yeast": {
+        bps: 10,
+        eps: 0,
+        biomassCost: 200,
+        energyCost: 5,
+        name: "Yeast",
+        require: {
+            trait: "Nucleus",
+            species: "Prokaryote",
+        },
+        role: Role.Consumer,
+        text: "mo nucleus, mo problem",
+        imagePath: "",
+    },
     "Algae": {
         bps: 10,
         eps: 10,
