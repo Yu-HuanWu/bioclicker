@@ -73,7 +73,7 @@ const getInitialOrganisms = () => ({
         name: "Yeast",
         require: {
             trait: "Nucleus",
-            species: "Prokaryote",
+            species: "Eukaryote",
         },
         role: Role.Consumer,
         text: "mo nucleus, mo problem",
