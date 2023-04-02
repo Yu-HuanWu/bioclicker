@@ -76,7 +76,7 @@ const getInitialOrganisms = () => ({
             species: "Eukaryote",
         },
         role: Role.Consumer,
-        text: "mo nucleus, mo problem",
+        text: "sun rises from the east, breads rise from the yeast",
         imagePath: "",
     },
     "Algae": {
