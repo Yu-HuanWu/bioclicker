@@ -77,7 +77,7 @@ const getInitialOrganisms = () => ({
         },
         role: Role.Consumer,
         text: "sun rises from the east, breads rise from the yeast",
-        imagePath: "",
+        imagePath: "bioclicker/graphics/testtile.jpeg",
     },
     "Algae": {
         bps: 10,
