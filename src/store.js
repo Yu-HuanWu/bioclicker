@@ -68,7 +68,7 @@ const getInitialOrganisms = () => ({
     "Yeast": {
         bps: 15,
         eps: 0,
-        biomassCost: 200,
+        biomassCost: 300,
         energyCost: 5,
         name: "Yeast",
         require: {
