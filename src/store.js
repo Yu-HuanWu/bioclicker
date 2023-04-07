@@ -76,7 +76,7 @@ const getInitialOrganisms = () => ({
             species: "Eukaryote",
         },
         role: Role.Consumer,
-        text: "sun rises from the east, breads rise from the yeast",
+        text: "sun rises from the east, bread rises from the yeast",
         imagePath: "bioclicker/graphics/testtile.jpeg",
     },
     "Algae": {
