@@ -63,7 +63,7 @@ const getInitialOrganisms = () => ({
         },
         role: Role.Consumer,
         text: "mo nucleus, mo problem",
-        imagePath: "",
+        imagePath: "bioclicker/graphics/testtile.jpeg",
     },
     "Yeast": {
         bps: 15,
