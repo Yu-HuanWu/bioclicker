@@ -313,7 +313,18 @@ const getInitialTraits = () => ({
             trait: "Deuterostome",
             species: "Jellyfish",
         },
-    }
+    },
+    "Carcinisation": {
+        multiplier: 1,
+        biomassCost: 9000,
+        energyCost: 2000,
+        name: "Carcinisation",
+        text: "",
+        require: {
+            trait: "Deuterostome",
+            species: "Jellyfish",
+        },
+    },
 });
 
 const allEvents = {
