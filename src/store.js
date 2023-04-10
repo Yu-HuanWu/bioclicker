@@ -316,7 +316,7 @@ const getInitialTraits = () => ({
     },
     "Carcinisation": {
         multiplier: 1,
-        biomassCost: 9000,
+        biomassCost: 19000,
         energyCost: 2000,
         name: "Carcinisation",
         text: "",
