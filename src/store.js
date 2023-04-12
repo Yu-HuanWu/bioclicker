@@ -317,7 +317,7 @@ const getInitialTraits = () => ({
     "Carcinisation": {
         multiplier: 1,
         biomassCost: 19000,
-        energyCost: 2000,
+        energyCost: 20000,
         name: "Carcinisation",
         text: "Unlock crabs",
         require: {
