@@ -145,7 +145,7 @@ const getInitialOrganisms = () => ({
             trait: "Differentiation",
             species: "Algae",
         },
-        role: Role.Producer,
+        role: Role.Consumer,
         text: "Is mayonnaise an instrument?",
         imagePath: "",
     },
