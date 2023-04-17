@@ -143,7 +143,7 @@ const getInitialOrganisms = () => ({
         name: "Starfish",
         require: {
             trait: "Differentiation",
-            species: "Algae",
+            species: "Seaweed",
         },
         role: Role.Consumer,
         text: "Is mayonnaise an instrument?",
