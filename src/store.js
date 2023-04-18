@@ -139,7 +139,7 @@ const getInitialOrganisms = () => ({
         bps: 30,
         eps: 30,
         biomassCost: 2000,
-        energyCost: 100,
+        energyCost: 1000,
         name: "Starfish",
         require: {
             trait: "Differentiation",
