@@ -136,7 +136,7 @@ const getInitialOrganisms = () => ({
         imagePath: "",
     },
     "Starfish": {
-        bps: 30,
+        bps: 40,
         eps: 30,
         biomassCost: 2000,
         energyCost: 1000,
