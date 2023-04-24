@@ -142,7 +142,7 @@ const getInitialOrganisms = () => ({
         energyCost: 1000,
         name: "Starfish",
         require: {
-            trait: "Differentiation",
+            trait: "Deuterostome",
             species: "Jellyfish",
         },
         role: Role.Consumer,
