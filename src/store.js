@@ -137,7 +137,7 @@ const getInitialOrganisms = () => ({
     },
     "Starfish": {
         bps: 40,
-        eps: 40,
+        eps: 0,
         biomassCost: 2000,
         energyCost: 1000,
         name: "Starfish",
