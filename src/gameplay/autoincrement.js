@@ -22,7 +22,6 @@ function useInterval(callback, delay) {
 }
 
 export function AutoIncrement({tbps, teps}) {
-    console.log(tbps, teps)
     const actions = useBioStore(s => s.actions);
     const incBiomass = useCallback(() => {
         actions.changeBiomass(tbps)
@@ -47,6 +46,11 @@ export function AutoIncrementByOrganisms() {
     const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
     let totalBiomassPerSecond = 0;
     let totalEnergyPerSecond = 0;
+    const counter = useBioStore(s => s.counter)
+    if (counter < 0) { 
+        return
+    }
+
     Object.keys(evolvedSpecies).forEach(organismName => {
         if (event.name === "Ice Age") {
             totalBiomassPerSecond = 0;
