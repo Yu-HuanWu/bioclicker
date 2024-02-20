@@ -223,7 +223,7 @@ const getInitialTraits = () => ({
         biomassCost: 200,
         energyCost: 300,
         name: "Respiration",
-        text: "Gain more energy: 10% of every producer's biomass cost for each purchase.",
+        text: "Gain additional energy equal to 10% of every new Producer's biomass cost.",
         require: {
             trait: "RNA",
             species: 0,
@@ -398,24 +398,29 @@ export const useBioStore = create((set, get) => ({
     organisms: getInitialOrganisms(),
     traits: getInitialTraits(),
     traitDescription: {"hover": false, "trait": 0},
-    evolvedSpecies: [],
+    evolvedSpecies: {},
     evolvedTraits: [],
     actions: {
         increaseCounter() {
             const { counter } = get();
-            // console.log(counter)
             if (counter >= 10) {
-                const currEvent = allEvents[Math.floor(Math.random() * 3)]
-                set({ counter: 0, event: currEvent })
+                const currEvent = allEvents[Math.floor(Math.random() * 3)];
+
+                set(()=> ({ 
+                    counter: 0, 
+                    event: currEvent 
+                }))
             } else {
-                set(state => ({counter: state.counter + 1}))
+                set(state => ({
+                    counter: state.counter + 1
+                }))
             }
         },
         newGame() {
             set({
                 biomass: getInitialBiomass(),
                 organisms: getInitialOrganisms(),
-                evolvedSpecies: [],
+                evolvedSpecies: {},
                 evolvedTraits: []
             });
         },
@@ -437,49 +442,76 @@ export const useBioStore = create((set, get) => ({
                 case 1:
                     // endosymbiosis effect: 
                     actions.changeBiomass(-organism.biomassCost);
-                    if (diceRoll(10)) {
-                        set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism, organisms["Eukaryote"]]
-                        }));
-                    } else {
-                        set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism]
-                        }));
-                    }
+                    set(state => {
+                        const newSpeciesState = state.evolvedSpecies;
+                        if (newSpeciesState[organismName] ) {
+                            newSpeciesState[organismName] += 1;
+                        } else {
+                            newSpeciesState[organismName] = 1;
+                        }
+                        if (diceRoll(10)){
+                            if (newSpeciesState["Eukaryote"]) {
+                                newSpeciesState["Eukaryote"] += 1;
+                            } else {
+                                newSpeciesState["Eukaryote"] = 1;
+                            }
+                        }
+                        return ({
+                            evolvedSpecies: newSpeciesState
+                        })
+                    });
                     break;
                 case 2:
                     // Respiration
                     actions.changeBiomass(-organism.biomassCost);
-                    set(state => ({
-                        evolvedSpecies: [...state.evolvedSpecies, organism],
-                        energy: state.energy+ Math.floor(organism.biomassCost * 0.1)
-                    }));
+                    set(state => {
+                        const newSpeciesState = state.evolvedSpecies;
+                        if (newSpeciesState[organismName]) {
+                            newSpeciesState[organismName] += 1;
+                        } else {
+                            newSpeciesState[organismName] = 1;
+                        }
+                        return ({
+                            evolvedSpecies: newSpeciesState,
+                            energy: state.energy + Math.floor(organism.biomassCost * 0.1)
+                        })
+                    })
                     break;
                 case 3:
                     // Binary Fission
                     actions.changeBiomass(-organism.biomassCost);
-                    if (diceRoll(10)) {
-                        set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism, organism]
-                        }));
-                    } else {
-                        set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism]
-                        }));
-                    }
+                    set(state => {
+                        const newSpeciesState = state.evolvedSpecies;
+                        if (newSpeciesState[organismName]) {
+                            newSpeciesState[organismName] += 1;
+                        } else {
+                            newSpeciesState[organismName] = 1;
+                        }
+                        if (diceRoll(10)) {
+                            newSpeciesState[organismName] += 1;
+                        }
+                        return ({
+                            evolvedSpecies: newSpeciesState
+                        })
+                    })
                     break;
                 case 4:
                     // Mitosis
                     actions.changeBiomass(-organism.biomassCost);
-                    if (diceRoll(10)) {
-                        set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism, organism]
-                        }));
-                    } else {
-                        set(state => ({
-                            evolvedSpecies: [...state.evolvedSpecies, organism]
-                        }));
-                    }
+                    set(state => {
+                        const newSpeciesState = state.evolvedSpecies;
+                        if (newSpeciesState[organismName]) {
+                            newSpeciesState[organismName] += 1;
+                        } else {
+                            newSpeciesState[organismName] = 1;
+                        }
+                        if (diceRoll(10)) {
+                            newSpeciesState[organismName] += 1;
+                        }
+                        return ({
+                            evolvedSpecies: newSpeciesState
+                        })
+                    })
                     break;
                 // case 4:
                 //     // code block
@@ -487,9 +519,17 @@ export const useBioStore = create((set, get) => ({
                 default:
                     actions.changeBiomass(-organism.biomassCost);
                     actions.changeEnergy(-organism.energyCost);
-                    set(state => ({
-                        evolvedSpecies: [...state.evolvedSpecies, organism]
-                    }));
+                    set(state => {
+                        const newSpeciesState = state.evolvedSpecies;
+                        if (newSpeciesState[organismName]) {
+                            newSpeciesState[organismName] += 1;
+                        } else {
+                            newSpeciesState[organismName] = 1;
+                        }
+                        return ({
+                            evolvedSpecies: newSpeciesState
+                        })
+                    })
             }
         },
         traitEvolution(traitName) {

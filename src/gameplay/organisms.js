@@ -8,8 +8,8 @@ export function DisableEvolution(requirement) {
         allTraits.push(trait.name)
     })
     const allSpecies = []
-    evolvedSpecies.forEach(species => {
-        allSpecies.push(species.name)
+    Object.keys(evolvedSpecies).forEach(speciesName => {
+      allSpecies.push(speciesName)
     })
     if ((allTraits.includes(requirement.trait) || requirement.trait === 0) && (allSpecies.includes(requirement.species) || requirement.species === 0)) {
         return false
@@ -24,16 +24,6 @@ export function OrganismList() {
   const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
   const actions = useBioStore(s => s.actions);
 
-  const numberOfThisOrganism = (organismName) => {
-    let count = 0
-    evolvedSpecies.forEach(species => {
-      if (species.name === organismName) {
-        count += 1
-      }
-    })
-    return count
-  }
-
   return (
     <div>
       <div className="ColumnTitle">Species</div>
@@ -42,8 +32,8 @@ export function OrganismList() {
           .map(key => organisms[key])
           .map((organism, i) => {
             let evolutionDisabled = DisableEvolution(organism.require)
-            const organismCount = numberOfThisOrganism(organism.name)
-            if (evolutionDisabled && organismCount === 0) {
+            const organismCount = evolvedSpecies[organism.name]
+            if (evolutionDisabled && organismCount === undefined) {
               return <div key={i}></div>
             } else {
               return (

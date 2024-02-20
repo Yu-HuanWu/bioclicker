@@ -42,23 +42,28 @@ export function AutoIncrementByOrganisms() {
     const carbohydrateEvolved = evolvedTraits.filter(trait => {
         return trait.name === "Carbohydrate";
     }).length > 0;
+    const organism = useBioStore(s => s.organisms)
     const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
     let totalBiomassPerSecond = 0;
     let totalEnergyPerSecond = 0;
-    evolvedSpecies.forEach(organism => {
+    const counter = useBioStore(s => s.counter)
+    if (counter < 0) { 
+        return
+    }
 
+    Object.keys(evolvedSpecies).forEach(organismName => {
         if (event.name === "Ice Age") {
             totalBiomassPerSecond = 0;
             totalEnergyPerSecond = 0;
-        } else if (event.name === "Sunny" && organism.role === 1) {
-            totalBiomassPerSecond += (organism.bps *2);
+        } else if (event.name === "Sunny" && organism[organismName].role === 1) {
+            totalBiomassPerSecond += ((organism[organismName].bps * evolvedSpecies[organismName]) *2);
             if (carbohydrateEvolved) {
-                totalEnergyPerSecond += (organism.eps *2);
+                totalEnergyPerSecond += ((organism[organismName].eps * evolvedSpecies[organismName]) *2);
             }
         } else {
-            totalBiomassPerSecond += organism.bps;
+            totalBiomassPerSecond += (organism[organismName].bps * evolvedSpecies[organismName]);
             if (carbohydrateEvolved) {
-                totalEnergyPerSecond += organism.eps;
+                totalEnergyPerSecond += (organism[organismName].eps * evolvedSpecies[organismName]);
             }
         }
     })
