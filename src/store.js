@@ -223,7 +223,7 @@ const getInitialTraits = () => ({
         biomassCost: 200,
         energyCost: 300,
         name: "Respiration",
-        text: "Gain more energy: 10% of every producer's biomass cost for each purchase.",
+        text: "Gain additional energy equal to 10% of every new Producer's biomass cost.",
         require: {
             trait: "RNA",
             species: 0,

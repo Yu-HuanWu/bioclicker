@@ -24,10 +24,6 @@ export function OrganismList() {
   const evolvedSpecies = useBioStore(s => s.evolvedSpecies);
   const actions = useBioStore(s => s.actions);
 
-  const numberOfThisOrganism = (organismName) => {
-    return evolvedSpecies[organismName]
-  }
-
   return (
     <div>
       <div className="ColumnTitle">Species</div>
@@ -36,7 +32,7 @@ export function OrganismList() {
           .map(key => organisms[key])
           .map((organism, i) => {
             let evolutionDisabled = DisableEvolution(organism.require)
-            const organismCount = numberOfThisOrganism(organism.name)
+            const organismCount = evolvedSpecies[organism.name]
             if (evolutionDisabled && organismCount === undefined) {
               return <div key={i}></div>
             } else {
