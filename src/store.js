@@ -212,7 +212,7 @@ const getInitialTraits = () => ({
         biomassCost: 300,
         energyCost: 0,
         name: "Photosynthesis",
-        text: "Unlock Cyanobacteria. Polymerize twice as much!",
+        text: "Unlock Cyanobacteria. Double your polymerization!",
         require: {
             trait: "RNA",
             species: 0,
