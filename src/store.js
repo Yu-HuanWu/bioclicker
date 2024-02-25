@@ -168,7 +168,7 @@ const getInitialTraits = () => ({
         biomassCost: 20,
         energyCost: 0,
         name: "Protein",
-        text: "Polymerize twice as much!",
+        text: "Double your polymerization!",
         require: {
             trait: 0,
             species: 0,
