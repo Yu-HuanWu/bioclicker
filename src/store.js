@@ -245,7 +245,7 @@ const getInitialTraits = () => ({
         biomassCost: 400,
         energyCost: 0,
         name: "Endosymbiosis",
-        text: "For every Prokaryote reproduction, there is a 10% chance of also reproducing an Eukaryotes",
+        text: "For every Prokaryote reproduction, there is a 10% chance of Eukaryote reproduction",
         require: {
             trait: "DNA",
             species: "Prokaryote",
