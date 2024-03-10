@@ -149,6 +149,20 @@ const getInitialOrganisms = () => ({
         text: "Is mayonnaise an instrument?",
         imagePath: "",
     },
+    "Nematode": {
+        bps: 100,
+        eps: 0,
+        biomassCost: 8000,
+        energyCost: 3000,
+        name: "Nematode",
+        require: {
+            trait: "Protostome",
+            species: "Jellyfish",
+        },
+        role: Role.Consumer,
+        text: "",
+        imagePath: "",
+    },
     "Lamprey": {
         bps: 100,
         eps: 0,
