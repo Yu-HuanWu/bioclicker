@@ -150,10 +150,10 @@ const getInitialOrganisms = () => ({
         imagePath: "",
     },
     "Nematode": {
-        bps: 100,
+        bps: 40,
         eps: 0,
-        biomassCost: 8000,
-        energyCost: 3000,
+        biomassCost: 1000,
+        energyCost: 2000,
         name: "Nematode",
         require: {
             trait: "Protostome",
