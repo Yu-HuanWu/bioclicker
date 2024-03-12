@@ -160,7 +160,7 @@ const getInitialOrganisms = () => ({
             species: "Jellyfish",
         },
         role: Role.Consumer,
-        text: "",
+        text: "head, shoulder, nematode~",
         imagePath: "",
     },
     "Lamprey": {
