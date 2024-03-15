@@ -339,7 +339,7 @@ const getInitialTraits = () => ({
         biomassCost: 3500,
         energyCost: 1000,
         name: "Deuterostome",
-        text: "Unlock Starfish",
+        text: "Unlock Starfish. Double your polymerization!",
         require: {
             trait: "Multicelluarity",
             species: "Jellyfish",
