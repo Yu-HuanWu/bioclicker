@@ -177,6 +177,20 @@ const getInitialOrganisms = () => ({
         text: "nothing lame about lamprey!",
         imagePath: "",
     },
+    "Shark": {
+        bps: 100,
+        eps: 0,
+        biomassCost: 8000,
+        energyCost: 3000,
+        name: "Lamprey",
+        require: {
+            trait: "Vertebrate",
+            species: "Starfish",
+        },
+        role: Role.Consumer,
+        text: "nothing lame about lamprey!",
+        imagePath: "",
+    },
 });
 
 const getInitialTraits = () => ({
