@@ -178,10 +178,10 @@ const getInitialOrganisms = () => ({
         imagePath: "",
     },
     "Shark": {
-        bps: 100,
+        bps: 500,
         eps: 0,
-        biomassCost: 8000,
-        energyCost: 3000,
+        biomassCost: 18000,
+        energyCost: 9000,
         name: "Shark",
         require: {
             trait: "Vertebrate",
