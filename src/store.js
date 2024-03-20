@@ -188,7 +188,7 @@ const getInitialOrganisms = () => ({
             species: "Lamprey",
         },
         role: Role.Consumer,
-        text: "nothing lame about lamprey!",
+        text: "prehistoric shark, doo doo doo",
         imagePath: "",
     },
 });
