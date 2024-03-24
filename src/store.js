@@ -191,15 +191,15 @@ const getInitialOrganisms = () => ({
         text: "prehistoric shark, doo doo doo~",
         imagePath: "",
     },
-    "Shark": {
-        bps: 500,
+    "Trilobite": {
+        bps: 100,
         eps: 0,
-        biomassCost: 18000,
-        energyCost: 9000,
+        biomassCost: 2000,
+        energyCost: 3000,
         name: "Shark",
         require: {
             trait: "Vertebrate",
-            species: "Lamprey",
+            species: "Nematode",
         },
         role: Role.Consumer,
         text: "prehistoric shark, doo doo doo~",
