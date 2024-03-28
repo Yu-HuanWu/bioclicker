@@ -202,7 +202,7 @@ const getInitialOrganisms = () => ({
             species: "Nematode",
         },
         role: Role.Consumer,
-        text: "",
+        text: "Not the first in the sea, but first to see.",
         imagePath: "",
     },
 });
