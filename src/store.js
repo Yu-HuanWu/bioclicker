@@ -384,6 +384,17 @@ const getInitialTraits = () => ({
             species: "Jellyfish",
         },
     },
+    "Arthropod": {
+        multiplier: 1,
+        biomassCost: 19000,
+        energyCost: 20000,
+        name: "Arthropod",
+        text: "Unlock Trilobite",
+        require: {
+            trait: "Deuterostome",
+            species: "Jellyfish",
+        },
+    },
     "Carcinisation": {
         multiplier: 1,
         biomassCost: 19000,
