@@ -391,8 +391,8 @@ const getInitialTraits = () => ({
         name: "Arthropod",
         text: "Unlock Trilobite",
         require: {
-            trait: "Deuterostome",
-            species: "Jellyfish",
+            trait: "Protostome",
+            species: "Nematode",
         },
     },
     "Carcinisation": {
