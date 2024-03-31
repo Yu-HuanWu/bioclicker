@@ -205,7 +205,7 @@ const getInitialOrganisms = () => ({
         text: "Not the first in the sea, but first to see.",
         imagePath: "",
     },
-    "template": {
+    "Crab": {
         bps: 100,
         eps: 0,
         biomassCost: 2000,
