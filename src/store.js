@@ -213,7 +213,7 @@ const getInitialOrganisms = () => ({
         name: "Crab",
         require: {
             trait: "Arthropod",
-            species: "Nematode",
+            species: "Trilobite",
         },
         role: Role.Consumer,
         text: "Not the first in the sea, but first to see.",
