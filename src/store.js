@@ -240,11 +240,11 @@ const getInitialOrganisms = () => ({
         energyCost: 3000,
         name: "",
         require: {
-            trait: "Arthropod",
-            species: "Nematode",
+            trait: "",
+            species: "",
         },
         role: Role.Consumer,
-        text: "Not the first in the sea, but first to see.",
+        text: "",
         imagePath: "",
     },
 });
