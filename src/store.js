@@ -216,7 +216,7 @@ const getInitialOrganisms = () => ({
             species: "Trilobite",
         },
         role: Role.Consumer,
-        text: "holy crab",
+        text: "crab rave time",
         imagePath: "",
     },
     "template": {
