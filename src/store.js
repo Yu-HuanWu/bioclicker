@@ -234,7 +234,7 @@ const getInitialOrganisms = () => ({
         imagePath: "",
     },
     "another template": {
-        bps: 100,
+        bps: 0,
         eps: 0,
         biomassCost: 2000,
         energyCost: 3000,
