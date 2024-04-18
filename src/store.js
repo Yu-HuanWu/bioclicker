@@ -219,7 +219,7 @@ const getInitialOrganisms = () => ({
         text: "crab rave time",
         imagePath: "",
     },
-    "temp": {
+    "tem": {
         bps: 100,
         eps: 0,
         biomassCost: 2000,
