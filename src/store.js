@@ -233,6 +233,20 @@ const getInitialOrganisms = () => ({
         text: "Not the first in the sea, but first to see.",
         imagePath: "",
     },
+    "another template": {
+        bps: 100,
+        eps: 0,
+        biomassCost: 2000,
+        energyCost: 3000,
+        name: "",
+        require: {
+            trait: "Arthropod",
+            species: "Nematode",
+        },
+        role: Role.Consumer,
+        text: "Not the first in the sea, but first to see.",
+        imagePath: "",
+    },
 });
 
 const getInitialTraits = () => ({
