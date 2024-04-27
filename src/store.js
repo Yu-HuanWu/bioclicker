@@ -236,7 +236,7 @@ const getInitialOrganisms = () => ({
     "template": {
         bps: 0,
         eps: 0,
-        biomassCost: 2000,
+        biomassCost: 0,
         energyCost: 3000,
         name: "",
         require: {
