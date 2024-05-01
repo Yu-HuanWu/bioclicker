@@ -233,7 +233,7 @@ const getInitialOrganisms = () => ({
         text: "",
         imagePath: "",
     },
-    "templat": {
+    "templa": {
         bps: 0,
         eps: 0,
         biomassCost: 0,
