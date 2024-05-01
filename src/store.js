@@ -226,7 +226,7 @@ const getInitialOrganisms = () => ({
         energyCost: 3000,
         name: "",
         require: {
-            trait: "Arthropod",
+            trait: "",
             species: "",
         },
         role: Role.Consumer,
