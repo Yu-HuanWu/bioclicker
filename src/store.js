@@ -223,7 +223,7 @@ const getInitialOrganisms = () => ({
         bps: 0,
         eps: 0,
         biomassCost: 2000,
-        energyCost: 3000,
+        energyCost: 300,
         name: "",
         require: {
             trait: "",
