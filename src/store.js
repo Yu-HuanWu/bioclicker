@@ -229,7 +229,7 @@ const getInitialOrganisms = () => ({
             trait: "",
             species: "",
         },
-        role: Role.Consumer,
+        role: Role,
         text: "",
         imagePath: "",
     },
