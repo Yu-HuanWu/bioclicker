@@ -222,7 +222,7 @@ const getInitialOrganisms = () => ({
     "": {
         bps: 400,
         eps: 100,
-        biomassCost: 1000,
+        biomassCost: 100,
         energyCost: 100,
         name: " ",
         require: {
