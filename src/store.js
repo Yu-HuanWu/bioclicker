@@ -231,7 +231,7 @@ const getInitialOrganisms = () => ({
         },
         role: Role.Decomposer,
         text: "",
-        imagePath: "",
+        imagePath: " ",
     },
     "": {
         bps: 0,
