@@ -240,7 +240,7 @@ const getInitialOrganisms = () => ({
         energyCost: 0,
         name: "",
         require: {
-            trait: "",
+            trait: " ",
             species: "",
         },
         role: Role.Consumer,
