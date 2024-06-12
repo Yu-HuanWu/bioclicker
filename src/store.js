@@ -245,7 +245,7 @@ const getInitialOrganisms = () => ({
         },
         role: Role.Consumer,
         text: "",
-        imagePath: "",
+        imagePath: " ",
     },
 });
 
