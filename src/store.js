@@ -453,19 +453,19 @@ const getInitialTraits = () => ({
 const allEvents = {
     0: {
         name: "Cosmic Radiation",
-        text: "a burst of cosmic radiation detected!",
+        text: "A burst of cosmic radiation detected!",
         description: "Polymerize twice as much!",
         imagePath: "",
     },
     1: {
         name: "Ice Age",
-        text: "thick smokes and ashes cover the sun.",
+        text: "Thick smokes and ashes cover the sun. Brr~",
         description: "All organisms ceased biomass and energy production.",
         imagePath: "",
     },
     2: {
         name: "Sunny",
-        text: "clear sky allowing reliable sunshine through.",
+        text: "Clear sky allowing reliable sunshine through.",
         description: "All producers double their biomass and energy production.",
         imagePath: "",
     },
