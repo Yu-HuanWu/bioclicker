@@ -240,8 +240,22 @@ const getInitialOrganisms = () => ({
         energyCost: 4500,
         name: "Lobster",
         require: {
-            trait: "Carcinisation",
+            trait: "Arthropod",
             species: "Trilobite",
+        },
+        role: Role.Consumer,
+        text: "Let's rock!",
+        imagePath: "",
+    },
+    "False Crab": {
+        bps: 200,
+        eps: 0,
+        biomassCost: 3000,
+        energyCost: 4500,
+        name: "False Crab",
+        require: {
+            trait: "Carcinisation",
+            species: "Lobster",
         },
         role: Role.Consumer,
         text: "(fake) crab rave time~",
