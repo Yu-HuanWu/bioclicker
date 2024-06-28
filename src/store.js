@@ -198,7 +198,7 @@ const getInitialOrganisms = () => ({
         energyCost: 19000,
         name: "Lungfish",
         require: {
-            trait: "Vertebrate",
+            trait: "Lung",
             species: "Shark",
         },
         role: Role.Consumer,
@@ -452,6 +452,17 @@ const getInitialTraits = () => ({
         require: {
             trait: "Deuterostome",
             species: "Jellyfish",
+        },
+    },
+    "Lung": {
+        multiplier: 1,
+        biomassCost: 19000,
+        energyCost: 4000,
+        name: "Lung",
+        text: "Unlock Lungfish",
+        require: {
+            trait: "Vertebrate",
+            species: "Shark",
         },
     },
     "Arthropod": {
