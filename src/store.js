@@ -212,7 +212,7 @@ const getInitialOrganisms = () => ({
         energyCost: 3000,
         name: "Trilobite",
         require: {
-            trait: "Arthropod",
+            trait: "Exoskeleton",
             species: "Nematode",
         },
         role: Role.Consumer,
@@ -240,7 +240,7 @@ const getInitialOrganisms = () => ({
         energyCost: 4500,
         name: "Lobster",
         require: {
-            trait: "Arthropod",
+            trait: "Exoskeleton",
             species: "Trilobite",
         },
         role: Role.Consumer,
@@ -465,11 +465,11 @@ const getInitialTraits = () => ({
             species: "Shark",
         },
     },
-    "Arthropod": {
+    "Exoskeleton": {
         multiplier: 1,
         biomassCost: 19000,
         energyCost: 20000,
-        name: "Arthropod",
+        name: "Exoskeleton",
         text: "Unlock Trilobite",
         require: {
             trait: "Protostome",
@@ -483,7 +483,7 @@ const getInitialTraits = () => ({
         name: "Carcinisation",
         text: "Unlock crab-like creatures",
         require: {
-            trait: "Deuterostome",
+            trait: "Exoskeleton",
             species: "Trilobite",
         },
     },
