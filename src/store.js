@@ -261,6 +261,20 @@ const getInitialOrganisms = () => ({
         text: "(fake) crab rave time~",
         imagePath: "",
     },
+    "Spider": {
+        bps: 200,
+        eps: 0,
+        biomassCost: 3000,
+        energyCost: 4000,
+        name: "Spider",
+        require: {
+            trait: "Chelicerae",
+            species: "Trilobite",
+        },
+        role: Role.Consumer,
+        text: " ",
+        imagePath: " ",
+    },
     " ": {
         bps: 0,
         eps: 0,
@@ -268,7 +282,7 @@ const getInitialOrganisms = () => ({
         energyCost: 8,
         name: " ",
         require: {
-            trait: " ",
+            trait: "Chelicerae",
             species: " ",
         },
         role: Role.Consumer,
