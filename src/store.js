@@ -487,6 +487,17 @@ const getInitialTraits = () => ({
             species: "Trilobite",
         },
     },
+    "Chelicerae": {
+        multiplier: 2,
+        biomassCost: 39000,
+        energyCost: 60000,
+        name: "Chelicerae",
+        text: "Unlock Spider",
+        require: {
+            trait: "Exoskeleton",
+            species: "Trilobite",
+        },
+    },
 });
 
 const allEvents = {
