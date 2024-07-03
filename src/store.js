@@ -272,7 +272,7 @@ const getInitialOrganisms = () => ({
             species: "Trilobite",
         },
         role: Role.Consumer,
-        text: " ",
+        text: "There's nothing to fear except fear itself, and spider.",
         imagePath: " ",
     },
     " ": {
