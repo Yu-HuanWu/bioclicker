@@ -512,6 +512,17 @@ const getInitialTraits = () => ({
             species: "Trilobite",
         },
     },
+    "": {
+        multiplier: 2,
+        biomassCost: 39000,
+        energyCost: 60000,
+        name: "",
+        text: "Unlock ",
+        require: {
+            trait: "",
+            species: "",
+        },
+    },
 });
 
 const allEvents = {
