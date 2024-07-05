@@ -517,7 +517,7 @@ const getInitialTraits = () => ({
         biomassCost: 39000,
         energyCost: 60000,
         name: "",
-        text: "Unlock ",
+        text: "Unlock",
         require: {
             trait: "",
             species: "",
