@@ -512,7 +512,7 @@ const getInitialTraits = () => ({
             species: "Trilobite",
         },
     },
-    "": {
+    "Tetrapods": {
         multiplier: 2,
         biomassCost: 39000,
         energyCost: 60000,
