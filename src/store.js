@@ -512,11 +512,11 @@ const getInitialTraits = () => ({
             species: "Trilobite",
         },
     },
-    "Tetrapods": {
+    "Tetrapod Limbs": {
         multiplier: 2,
         biomassCost: 39000,
         energyCost: 60000,
-        name: "",
+        name: "Tetrapod Limbs",
         text: "Unlock",
         require: {
             trait: "",
