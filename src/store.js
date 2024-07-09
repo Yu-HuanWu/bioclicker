@@ -519,7 +519,7 @@ const getInitialTraits = () => ({
         name: "Tetrapod Limbs",
         text: "Unlock Platypus",
         require: {
-            trait: "",
+            trait: "Lung",
             species: "",
         },
     },
