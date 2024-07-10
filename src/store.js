@@ -520,7 +520,7 @@ const getInitialTraits = () => ({
         text: "Unlock Platypus",
         require: {
             trait: "Lung",
-            species: "",
+            species: "Lungfish",
         },
     },
 });
