@@ -275,7 +275,7 @@ const getInitialOrganisms = () => ({
         text: "There's nothing to fear except fear itself, and spider.",
         imagePath: " ",
     },
-    " ": {
+    "Platypus": {
         bps: 0,
         eps: 0,
         biomassCost: 0,
