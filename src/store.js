@@ -280,7 +280,7 @@ const getInitialOrganisms = () => ({
         eps: 0,
         biomassCost: 0,
         energyCost: 8,
-        name: " ",
+        name: "Platypus",
         require: {
             trait: "Chelicerae",
             species: " ",
