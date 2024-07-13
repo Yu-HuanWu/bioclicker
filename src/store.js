@@ -282,7 +282,7 @@ const getInitialOrganisms = () => ({
         energyCost: 8,
         name: "Platypus",
         require: {
-            trait: "Chelicerae",
+            trait: "",
             species: " ",
         },
         role: Role.Consumer,
