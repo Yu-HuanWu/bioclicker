@@ -282,7 +282,7 @@ const getInitialOrganisms = () => ({
         energyCost: 8,
         name: "Platypus",
         require: {
-            trait: "",
+            trait: "Tetrapod Limbs",
             species: " ",
         },
         role: Role.Consumer,
