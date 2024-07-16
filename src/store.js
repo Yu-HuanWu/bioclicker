@@ -279,14 +279,14 @@ const getInitialOrganisms = () => ({
         bps: 0,
         eps: 0,
         biomassCost: 0,
-        energyCost: 8,
+        energyCost: 29000,
         name: "Platypus",
         require: {
             trait: "Tetrapod Limbs",
             species: "Lungfish",
         },
         role: Role.Consumer,
-        text: " ",
+        text: "",
         imagePath: " ",
     },
 });
