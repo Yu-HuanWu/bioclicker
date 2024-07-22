@@ -290,7 +290,7 @@ const getInitialOrganisms = () => ({
         imagePath: "",
     },
     "": {
-        bps: 550,
+        bps: 0,
         eps: 0,
         biomassCost: 34000,
         energyCost: 29000,
