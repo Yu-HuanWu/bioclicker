@@ -289,12 +289,12 @@ const getInitialOrganisms = () => ({
         text: "",
         imagePath: "",
     },
-    " ": {
+    "": {
         bps: 610,
         eps: 0,
         biomassCost: 38000,
         energyCost: 33000,
-        name: "",
+        name: " ",
         require: {
             trait: "Tetrapod Limbs",
             species: "Lungfish",
