@@ -300,7 +300,7 @@ const getInitialOrganisms = () => ({
             species: "Lungfish",
         },
         role: Role.Consumer,
-        text: "",
+        text: " ",
         imagePath: "",
     },
 });
