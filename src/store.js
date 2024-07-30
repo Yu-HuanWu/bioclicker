@@ -297,7 +297,7 @@ const getInitialOrganisms = () => ({
         name: " ",
         require: {
             trait: "",
-            species: "Lungfish",
+            species: "Lungfis",
         },
         role: Role.Consumer,
         text: " ",
