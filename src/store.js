@@ -297,11 +297,11 @@ const getInitialOrganisms = () => ({
         name: " ",
         require: {
             trait: "",
-            species: "Lungfi",
+            species: "Lungf",
         },
         role: Role.Consumer,
         text: " ",
-        imagePath: " ",
+        imagePath: "",
     },
 });
 
