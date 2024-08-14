@@ -202,7 +202,7 @@ const getInitialOrganisms = () => ({
             species: "Shark",
         },
         role: Role.Consumer,
-        text: "One small breath for fish, one giant breath for vertebrates",
+        text: "One small breath for fish, one giant breath for vertebrates.",
         imagePath: "",
     },
     "Trilobite": {
