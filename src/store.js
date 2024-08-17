@@ -292,8 +292,8 @@ const getInitialOrganisms = () => ({
     "": {
         bps: 610,
         eps: 0,
-        biomassCost: 38000,
-        energyCost: 33000,
+        biomassCost: 34000,
+        energyCost: 29000,
         name: "",
         require: {
             trait: "Stratum Corneum",
