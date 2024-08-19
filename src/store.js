@@ -537,6 +537,17 @@ const getInitialTraits = () => ({
             species: "Lungfish",
         },
     },
+    "Stratum Corneum": {
+        multiplier: 2,
+        biomassCost: 39000,
+        energyCost: 60000,
+        name: "Tetrapod Limbs",
+        text: "Unlock Platypus",
+        require: {
+            trait: "Lung",
+            species: "Lungfish",
+        },
+    },
 });
 
 const allEvents = {
