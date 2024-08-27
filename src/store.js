@@ -542,7 +542,7 @@ const getInitialTraits = () => ({
         biomassCost: 39000,
         energyCost: 60000,
         name: "Stratum Corneum",
-        text: "Unlock fro",
+        text: "Unlock frog",
         require: {
             trait: "Tetrapod Limbs",
             species: "Lungfish",
