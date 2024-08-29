@@ -289,12 +289,12 @@ const getInitialOrganisms = () => ({
         text: "Natural's Frankenstein.",
         imagePath: "",
     },
-    "": {
+    "Frog": {
         bps: 550,
         eps: 0,
         biomassCost: 34000,
         energyCost: 29000,
-        name: "",
+        name: "Frog",
         require: {
             trait: "Stratum Corneum",
             species: "Lungfish",
