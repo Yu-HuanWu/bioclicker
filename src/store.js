@@ -303,7 +303,7 @@ const getInitialOrganisms = () => ({
         text: "",
         imagePath: "",
     },
-    "Frog": {
+    "Newt": {
         bps: 550,
         eps: 0,
         biomassCost: 34000,
