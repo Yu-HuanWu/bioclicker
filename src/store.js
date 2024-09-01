@@ -308,7 +308,7 @@ const getInitialOrganisms = () => ({
         eps: 0,
         biomassCost: 34000,
         energyCost: 29000,
-        name: "Frog",
+        name: "Newt",
         require: {
             trait: "Stratum Corneum",
             species: "Lungfish",
