@@ -275,20 +275,6 @@ const getInitialOrganisms = () => ({
         text: "There's nothing to fear except fear itself, and spider.",
         imagePath: " ",
     },
-    "Platypus": {
-        bps: 550,
-        eps: 0,
-        biomassCost: 34000,
-        energyCost: 29000,
-        name: "Platypus",
-        require: {
-            trait: "Tetrapod Limbs",
-            species: "Lungfish",
-        },
-        role: Role.Consumer,
-        text: "Natural's Frankenstein.",
-        imagePath: "",
-    },
     "Frog": {
         bps: 550,
         eps: 0,
@@ -315,6 +301,20 @@ const getInitialOrganisms = () => ({
         },
         role: Role.Consumer,
         text: "",
+        imagePath: "",
+    },
+    "Platypus": {
+        bps: 550,
+        eps: 0,
+        biomassCost: 34000,
+        energyCost: 29000,
+        name: "Platypus",
+        require: {
+            trait: "Tetrapod Limbs",
+            species: "Lungfish",
+        },
+        role: Role.Consumer,
+        text: "Natural's Frankenstein.",
         imagePath: "",
     },
 });
