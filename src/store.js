@@ -287,7 +287,7 @@ const getInitialOrganisms = () => ({
         },
         role: Role.Consumer,
         text: "hello my baby, hello my darling",
-        imagePath: " ",
+        imagePath: "",
     },
     "Newt": {
         bps: 550,
