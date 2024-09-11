@@ -317,6 +317,20 @@ const getInitialOrganisms = () => ({
         text: "Natural's Frankenstein.",
         imagePath: "",
     },
+    "Platypus": {
+        bps: 550,
+        eps: 0,
+        biomassCost: 34000,
+        energyCost: 29000,
+        name: "Platypus",
+        require: {
+            trait: "Tetrapod Limbs",
+            species: "Lungfish",
+        },
+        role: Role.Consumer,
+        text: "Natural's Frankenstein.",
+        imagePath: "",
+    },
 });
 
 const getInitialTraits = () => ({
