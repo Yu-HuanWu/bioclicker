@@ -317,7 +317,7 @@ const getInitialOrganisms = () => ({
         text: "Natural's Frankenstein.",
         imagePath: "",
     },
-    "Platypus": {
+    "": {
         bps: 550,
         eps: 0,
         biomassCost: 34000,
